@@ -299,3 +299,5 @@ back-end/.env
 **/.nyc_output
 back-end/.env.example
 front-end/.env
+front-end/.env
+back-end/.env.example
