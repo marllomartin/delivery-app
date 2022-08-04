@@ -1,10 +1,12 @@
 import React from 'react';
+import LoginCard from '../components/LoginCard';
 
 function Login() {
   return (
-    <article className="LoginPage">
-      <h1>Login Page</h1>
-    </article>
+    <div className="LoginPage">
+      <h1>APP NAME</h1>
+      <LoginCard />
+    </div>
   );
 }
 
