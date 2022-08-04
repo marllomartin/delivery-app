@@ -297,3 +297,5 @@ back-end/.env
 **/reports/**/*
 **/coverage
 **/.nyc_output
+back-end/.env.example
+front-end/.env
