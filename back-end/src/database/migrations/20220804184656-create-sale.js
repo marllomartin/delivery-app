@@ -1,7 +1,7 @@
 'use strict';
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('Sales', {
+    await queryInterface.createTable('sales', {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -25,7 +25,7 @@ module.exports = {
         }
       },
       totalPrice: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.DECIMAL(9,2),
         field: 'total_price',
       },
       deliveryAddress: {
@@ -48,6 +48,6 @@ module.exports = {
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('Sales');
+    await queryInterface.dropTable('sales');
   }
 };
