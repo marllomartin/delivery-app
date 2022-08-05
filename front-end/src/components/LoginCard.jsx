@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 function LoginCard() {
   return (
@@ -28,13 +29,14 @@ function LoginCard() {
         >
           Login
         </button>
-
-        <button
-          type="button"
-          data-testid="common_login__button-register"
-        >
-          Ainda nao tenho conta
-        </button>
+        <Link to="/Register">
+          <button
+            type="button"
+            data-testid="common_login__button-register"
+          >
+            Ainda nao tenho conta
+          </button>
+        </Link>
       </form>
     </div>
   );
