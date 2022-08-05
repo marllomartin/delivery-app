@@ -35,7 +35,7 @@ function Register() {
           { ...register('password', { required: true, minLength: 6 }) }
         />
         <button
-          data-test="common_register__button-register"
+          data-testid="common_register__button-register"
           type="submit"
           disabled={ !isDirty || !isValid }
         >
