@@ -1,8 +1,7 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 
-function LoginCard() {
+function Register() {
   const {
     register,
     handleSubmit,
@@ -12,42 +11,40 @@ function LoginCard() {
   console.log(errors);
 
   return (
-    <div className="LoginCard">
+    <div>
       <form onSubmit={ handleSubmit(onSubmit) }>
         <input
+          data-testid="common_register__input-name"
+          type="text"
+          placeholder="Nome"
+          { ...register('Nome', { required: true, minLength: 12 }) }
+        />
+        <input
+          data-testid="common_register__input-email"
           type="email"
-          data-testid="common_login__input-email"
           placeholder="email"
           { ...register('email', {
             required: true,
-            pattern: /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/,
+            pattern: /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/i,
           }) }
         />
         <input
+          data-testid="common_register__input-password"
           type="password"
-          data-testid="common_login__input-password"
           placeholder="password"
           { ...register('password', { required: true, minLength: 6 }) }
         />
-        {errors.exampleRequired && <span>This field is required</span>}
         <button
+          data-testid="common_register__button-register"
           type="submit"
-          data-testid="common_login__button-login"
           disabled={ !isDirty || !isValid }
         >
-          Login
+          register
+
         </button>
-        <Link to="/register">
-          <button
-            type="button"
-            data-testid="common_login__button-register"
-          >
-            Ainda nao tenho conta
-          </button>
-        </Link>
       </form>
     </div>
   );
 }
 
-export default LoginCard;
+export default Register;
