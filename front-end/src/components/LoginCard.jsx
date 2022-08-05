@@ -38,7 +38,7 @@ function LoginCard() {
           Login
         </button>
       </form>
-      <Link to="/Register">
+      <Link to="/register">
         <button type="button" data-testid="common_login__button-register">
           Ainda nao tenho conta
         </button>
