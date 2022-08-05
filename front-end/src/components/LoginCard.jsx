@@ -39,13 +39,10 @@ function LoginCard() {
         </button>
       </form>
       <Link to="/Register">
-          <button
-            type="button"
-            data-testid="common_login__button-register"
-          >
-            Ainda nao tenho conta
-          </button>
-        </Link>
+        <button type="button" data-testid="common_login__button-register">
+          Ainda nao tenho conta
+        </button>
+      </Link>
     </div>
   );
 }
