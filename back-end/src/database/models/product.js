@@ -20,6 +20,7 @@ const Product = (sequelize, DataTypes) => {
   },
     {
       timestamps: false,
+      underscored: true,
     });
 
   return Product;
