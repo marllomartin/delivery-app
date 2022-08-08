@@ -24,12 +24,14 @@ const register = async (obj) => {
 
   if (verify) throw new Error('Email already registered');
 
-  return await user.create({
+  await user.create({ name, email, password: translated, role });
+
+  return {
     name,
     email,
-    password: translated,
     role,
-  });
+    token: generateToken({ email }),
+  };
 }
 
 module.exports = { login, register };
