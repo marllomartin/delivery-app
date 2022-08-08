@@ -1,23 +1,43 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 
 function Register() {
+  const [invalidRegister, setInvalidRegister] = useState(false);
+
   const {
     register,
     handleSubmit,
     formState: { errors, isDirty, isValid },
   } = useForm({ mode: 'onChange' });
-  const onSubmit = (data) => console.log(data);
+
+  const history = useNavigate();
+  const Conflict = 409;
+
+  const registerUser = async (data) => fetch('http://localhost:3001/register', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(data),
+  }).then((response) => {
+    if (response.status === Conflict) {
+      setInvalidRegister(true);
+    } else {
+      history('/customer/products');
+    }
+  });
+
   console.log(errors);
 
   return (
     <div>
-      <form onSubmit={ handleSubmit(onSubmit) }>
+      <form onSubmit={ handleSubmit(registerUser) }>
         <input
           data-testid="common_register__input-name"
           type="text"
-          placeholder="Nome"
-          { ...register('Nome', { required: true, minLength: 12 }) }
+          placeholder="name"
+          { ...register('name', { required: true, minLength: 12 }) }
         />
         <input
           data-testid="common_register__input-email"
@@ -34,6 +54,11 @@ function Register() {
           placeholder="password"
           { ...register('password', { required: true, minLength: 6 }) }
         />
+        {invalidRegister && (
+          <span data-testid="common_register__element-invalid_register">
+            Registro invalido
+          </span>
+        )}
         <button
           data-testid="common_register__button-register"
           type="submit"
