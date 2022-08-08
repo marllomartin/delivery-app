@@ -22,10 +22,6 @@ const Product = (sequelize, DataTypes) => {
       timestamps: false,
     });
 
-  Product.associate = (models) => {
-
-  };
-
   return Product;
 };
 
