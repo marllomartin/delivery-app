@@ -10,5 +10,6 @@ app.use(cors());
 app.use(express.json());
 
 app.post('/login', UserController.login);
+app.post('/register', UserController.register);
 
 module.exports = app;
