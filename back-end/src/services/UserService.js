@@ -33,6 +33,6 @@ const register = async (obj) => {
     role,
     token: generateToken({ email }),
   };
-}
+};
 
 module.exports = { login, register };

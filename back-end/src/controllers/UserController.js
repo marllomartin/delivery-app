@@ -17,6 +17,6 @@ const register = async (req, res) => {
   } catch (Error) {
     return res.status(StatusCodes.CONFLICT).send({ message: Error.message });
   }
-}
+};
 
 module.exports = { login, register };
