@@ -1,7 +1,6 @@
 const { user } = require('../database/models');
+const generateToken = require('../utils/generateToken');
 const translateMd5 = require('../utils/translateMd5');
-
-const testToken = 'SgVkYp3s6v9y$B&E)H@McQfTjWmZq';
 
 const login = async (email, password) => {
   const verify = await user.findOne({ where: { email } });
@@ -9,7 +8,12 @@ const login = async (email, password) => {
 
   if (!verify || verify.password !== translated) throw new Error('Invalid fields');
 
-  return { token: testToken };
+  return {
+    name: verify.name,
+    email: verify.email,
+    role: verify.role,
+    token: generateToken({ email })
+  };
 };
 
 module.exports = { login };
