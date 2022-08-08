@@ -12,7 +12,7 @@ const login = async (email, password) => {
     name: verify.name,
     email: verify.email,
     role: verify.role,
-    token: generateToken({ email })
+    token: generateToken({ email }),
   };
 };
 
