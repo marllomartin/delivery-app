@@ -15,7 +15,7 @@ const register = async (req, res) => {
     const result = await UserService.register(req.body);
     return res.status(StatusCodes.CREATED).json(result);
   } catch (Error) {
-    return res.status(StatusCodes.NOT_FOUND).send({ message: Error.message });
+    return res.status(StatusCodes.CONFLICT).send({ message: Error.message });
   }
 }
 
