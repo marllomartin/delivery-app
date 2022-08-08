@@ -2,7 +2,8 @@ const { user } = require('../database/models');
 const generateToken = require('../utils/generateToken');
 const translateMd5 = require('../utils/translateMd5');
 
-const login = async (email, password) => {
+const login = async (obj) => {
+  const { email, password } = obj;
   const verify = await user.findOne({ where: { email } });
   const translated = await translateMd5(password);
 
@@ -12,8 +13,23 @@ const login = async (email, password) => {
     name: verify.name,
     email: verify.email,
     role: verify.role,
-    token: generateToken({ email })
+    token: generateToken({ email }),
   };
 };
 
-module.exports = { login };
+const register = async (obj) => {
+  const { name, email, password, role } = obj;
+  const verify = await user.findOne({ where: { email } });
+  const translated = await translateMd5(password);
+
+  if (verify) throw new Error('Email already registered');
+
+  return await user.create({
+    name,
+    email,
+    password: translated,
+    role,
+  });
+}
+
+module.exports = { login, register };
