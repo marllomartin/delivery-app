@@ -14,5 +14,5 @@ app.post('/login', UserController.login);
 app.post('/register', UserController.register);
 
 app.get('/products', ProductController.findAll);
-
+app.get('/products/:id', ProductController.findById);
 module.exports = app;

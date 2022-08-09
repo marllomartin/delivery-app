@@ -6,4 +6,10 @@ const findAll = async () => {
   return products;
 };
 
-module.exports = { findAll };
+const findById = async (id) => {
+  const productById = await product.findByPk(id);
+  if (!productById) return null;
+  return productById;
+};
+
+module.exports = { findAll, findById };
