@@ -18,10 +18,11 @@ const login = async (obj) => {
 };
 
 const register = async (obj) => {
-  const { name, email, password, role } = obj;
+  const { name, email, password } = obj;
   const verifyEmail = await user.findOne({ where: { email } });
   const verifyName = await user.findOne({ where: { name } });
   const translated = await translateMd5(password);
+  const role = 'customer';
 
   if (verifyEmail || verifyName) throw new Error('User already registered');
 
