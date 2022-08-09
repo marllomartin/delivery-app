@@ -20,14 +20,14 @@ function Register() {
       'Content-Type': 'application/json',
     },
     body: JSON.stringify(data),
-  }).then((response) => {
+  }).then(async (response) => {
     if (response.status === Conflict) {
       setInvalidRegister(true);
-      return response.json();
+    } else {
+      const res = await response.json();
+      localStorage.setItem('user', JSON.stringify(res));
+      history('/customer/products');
     }
-  }).then((res) => {
-    localStorage.setItem('user', JSON.stringify(res));
-    history('/customer/products');
   });
 
   // console.log(errors);

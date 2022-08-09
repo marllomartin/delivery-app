@@ -20,14 +20,14 @@ function LoginCard() {
       'Content-Type': 'application/json',
     },
     body: JSON.stringify(data),
-  }).then((response) => {
+  }).then(async (response) => {
     if (response.status === notFount) {
       setInvalidLogin(true);
+    } else {
+      const res = await response.json();
+      localStorage.setItem('user', JSON.stringify(res));
+      history('/customer/products');
     }
-    return response.json();
-  }).then((res) => {
-    localStorage.setItem('user', JSON.stringify(res));
-    history('/customer/products');
   });
   // console.log(errors);
 
