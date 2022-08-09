@@ -1,6 +1,7 @@
+const { readFileSync } = require('fs');
 const jwt = require('jsonwebtoken');
 
-const secret = 'secret_key';
+const jwtSecret = readFileSync('jwt.evaluation.key', { encoding: 'utf-8' });
 
 const jwtConfig = {
   expiresIn: '1h',
@@ -8,7 +9,7 @@ const jwtConfig = {
 };
 
 const generateToken = (payload) => {
-  const token = jwt.sign({ data: payload }, secret, jwtConfig);
+  const token = jwt.sign({ payload }, jwtSecret, jwtConfig);
 
   return token;
 };
