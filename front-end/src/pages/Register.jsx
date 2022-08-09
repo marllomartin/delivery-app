@@ -23,12 +23,14 @@ function Register() {
   }).then((response) => {
     if (response.status === Conflict) {
       setInvalidRegister(true);
-    } else {
-      history('/customer/products');
+      return response.json();
     }
+  }).then((res) => {
+    localStorage.setItem('user', JSON.stringify(res));
+    history('/customer/products');
   });
 
-  console.log(errors);
+  // console.log(errors);
 
   return (
     <div>
@@ -54,6 +56,7 @@ function Register() {
           placeholder="password"
           { ...register('password', { required: true, minLength: 6 }) }
         />
+        {errors.exampleRequired && <span>This field is required</span>}
         {invalidRegister && (
           <span data-testid="common_register__element-invalid_register">
             Registro invalido

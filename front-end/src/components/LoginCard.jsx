@@ -23,11 +23,13 @@ function LoginCard() {
   }).then((response) => {
     if (response.status === notFount) {
       setInvalidLogin(true);
-    } else {
-      history('/customer/products');
     }
+    return response.json();
+  }).then((res) => {
+    localStorage.setItem('user', JSON.stringify(res));
+    history('/customer/products');
   });
-  console.log(errors);
+  // console.log(errors);
 
   return (
     <div className="LoginCard">
