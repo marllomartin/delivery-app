@@ -5,9 +5,9 @@ import ProductCard from '../components/ProductCard';
 function ProductsPage() {
   return (
     <>
-    <div>
-      <NavHeader />
-    </div>
+      <div>
+        <NavHeader />
+      </div>
       <main>
         <ProductCard />
       </main>
