@@ -3,12 +3,7 @@ import PropTypes from 'prop-types';
 import Context from './Context';
 
 function Provider({ children }) {
-  const [prodCart, setProdCart] = useState(JSON.parse(localStorage.getItem('cart')));
-
-  const mainState = {
-    prodCart,
-    setProdCart,
-  };
+  const mainState = useState(JSON.parse(localStorage.getItem('cart')));
 
   return (
     <Context.Provider value={ mainState }>

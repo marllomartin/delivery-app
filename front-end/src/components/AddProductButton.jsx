@@ -3,10 +3,10 @@ import PropTypes from 'prop-types';
 import Context from '../context/Context';
 
 function AddProductButton({ data }) {
-  const {
+  const [
     prodCart,
     setProdCart,
-  } = useContext(Context);
+  ] = useContext(Context);
 
   let prod = prodCart;
   const { urlImage, name, id, price } = data;
