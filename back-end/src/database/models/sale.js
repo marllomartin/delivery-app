@@ -7,11 +7,11 @@ const Sale = (sequelize, DataTypes) => {
     },
     userId: {
       allowNull: false,
-      type: DataTypes.STRING,
+      type: DataTypes.INTEGER,
     },
     sellerId: {
       allowNull: false,
-      type: DataTypes.STRING,
+      type: DataTypes.INTEGER,
     },
     totalPrice: {
       allowNull: false,
@@ -27,7 +27,7 @@ const Sale = (sequelize, DataTypes) => {
     },
     saleDate: {
       allowNull: false,
-      type: DataTypes.STRING,
+      type: DataTypes.DATE,
     },
     status: {
       allowNull: false,
@@ -36,12 +36,17 @@ const Sale = (sequelize, DataTypes) => {
   },
     {
       timestamps: false,
+      underscored: true,
     });
 
   Sale.associate = (models) => {
     Sale.belongsTo(models.user, {
       as: 'user',
       foreignKey: 'userId',
+    });
+    Sale.belongsTo(models.user, {
+      as: 'seller',
+      foreignKey: 'sellerId',
     });
   };
 
