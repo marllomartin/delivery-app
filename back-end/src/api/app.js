@@ -21,5 +21,6 @@ app.get('/products/:id', ProductController.findById);
 app.use('/images', express.static(path.join(__dirname, '../images')));
 
 app.get('/orders', OrderController.findAll);
+app.get('/orders/:id', OrderController.findById);
 
 module.exports = app;
