@@ -15,9 +15,18 @@ const findById = async (req, res) => {
     const { id } = req.params;
     const findOrder = await OrderService.getById(id);
     return res.status(StatusCodes.OK).json(findOrder);
-  } catch (error) {
+  } catch (Error) {
     return res.status(StatusCodes.NOT_FOUND).send({ message: Error.message });
   }
 };
 
-module.exports = { findAll, findById };
+const createOrder = async (req, res) => {
+try {
+  const createdOrder = await OrderService.createOrder(req.body);
+  return res.status(StatusCodes.CREATED).json({ createdOrder });
+} catch (Error) {
+  return res.status(StatusCodes.NOT_FOUND).send({ message: Error.message });
+  }
+};
+
+module.exports = { findAll, findById, createOrder };

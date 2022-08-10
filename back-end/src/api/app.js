@@ -6,6 +6,8 @@ const UserController = require('../controllers/UserController');
 const ProductController = require('../controllers/ProductController');
 const OrderController = require('../controllers/OrderController');
 
+const authToken = require('../middlewares/authToken');
+
 const app = express();
 
 app.use(cors());
@@ -22,5 +24,6 @@ app.use('/images', express.static(path.join(__dirname, '../images')));
 
 app.get('/orders', OrderController.findAll);
 app.get('/orders/:id', OrderController.findById);
+app.post('/orders', authToken, OrderController.createOrder);
 
 module.exports = app;
