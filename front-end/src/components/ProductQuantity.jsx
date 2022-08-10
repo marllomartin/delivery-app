@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-function ProductQuantity({ id }) {
+function ProductQuantity({ data }) {
+  const { urlImage, name, id, price } = data;
   return (
     <label htmlFor="quantity">
       Qt:
@@ -15,11 +16,21 @@ function ProductQuantity({ id }) {
 }
 
 ProductQuantity.propTypes = {
-  id: PropTypes.number,
+  data: PropTypes.shape({
+    id: PropTypes.number,
+    name: PropTypes.string,
+    price: PropTypes.string,
+    urlImage: PropTypes.string,
+  }),
 };
 
 ProductQuantity.defaultProps = {
-  id: 999,
+  data: PropTypes.shape({
+    name: 'a',
+    id: 999,
+    price: 'b',
+    urlImage: 'c',
+  }),
 };
 
 export default ProductQuantity;

@@ -19,9 +19,9 @@ function ProductCard({ data }) {
       <p data-testid={ `customer_products__element-card-price-${id}` }>
         {price.replace(/\./, ',')}
       </p>
-      <AddProductButton key={ `add${id}` } id={ id } />
-      <ProductQuantity key={ `pq${id}` } id={ id } />
-      <RemoveProductButton key={ `rm${id}` } id={ id } />
+      <AddProductButton key={ `add${id}` } data={ data } />
+      <ProductQuantity key={ `pq${id}` } data={ data } />
+      <RemoveProductButton key={ `rm${id}` } data={ data } />
     </div>
   );
 }
