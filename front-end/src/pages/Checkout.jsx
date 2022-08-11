@@ -1,11 +1,8 @@
 import React from 'react';
-import Cart from '../components/Cart';
 
 function Checkout() {
   return (
-    <div>
-      <Cart />
-    </div>
+    <div><p>a</p></div>
   );
 }
 

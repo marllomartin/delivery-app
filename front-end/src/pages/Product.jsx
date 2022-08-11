@@ -26,10 +26,10 @@ function ProductsPage() {
         <NavHeader />
       </div>
       <main>
+        <Cart />
         {productsList.map((prod) => (
           <ProductCard key={ `prodCard${prod.id}` } data={ prod } />
         ))}
-        <Cart />
       </main>
     </>
   );
