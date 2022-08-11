@@ -18,7 +18,7 @@ const getById = async (id) => {
   return findOrder;
 };
 
-const createOrder = async (data) => {
+const create = async (data) => {
   const { userId, sellerId, totalPrice, deliveryAddress, deliveryNumber, saleDate, status } = data;
 
   const result = await sale.create(
@@ -28,4 +28,4 @@ const createOrder = async (data) => {
   return result;
 };
 
-module.exports = { findAll, getById, createOrder };
+module.exports = { findAll, getById, create };
