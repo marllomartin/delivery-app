@@ -19,6 +19,11 @@ function ProductCard({ data }) {
 
   const [prodQt, setProdQt] = useState(getQt());
 
+  const sendQtFunc = (solventstate) => {
+    setProdQt(solventstate);
+    console.log('🚀 ~ file: ProductCard.jsx ~ line 21 ~ ProductCard ~ prodQt', prodQt);
+  };
+
   const { urlImage, name, id, price } = data;
   return (
     <div>
@@ -35,14 +40,14 @@ function ProductCard({ data }) {
         key={ `add${id}` }
         data={ data }
         quant={ prodQt }
-        setQuant={ setProdQt }
+        sendQtFunc={ sendQtFunc }
       />
       <ProductQuantity key={ `pq${id}` } data={ data } quant={ prodQt } />
       <RemoveProductButton
         key={ `rm${id}` }
         data={ data }
         quant={ prodQt }
-        setQuant={ setProdQt }
+        sendQtFunc={ sendQtFunc }
       />
     </div>
   );

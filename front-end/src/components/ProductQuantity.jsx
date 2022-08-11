@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { useCart } from 'react-use-cart';
 import { useForm } from 'react-hook-form';
 
-function ProductQuantity({ data }) {
+function ProductQuantity({ data, quant }) {
   const {
     register,
     handleSubmit,
@@ -12,14 +12,6 @@ function ProductQuantity({ data }) {
 
   const { updateItemQuantity, getItem, addItem } = useCart();
   const { id } = data;
-
-  function getQt() {
-    const qt = getItem(id);
-    if (qt === undefined) {
-      return 0;
-    }
-    return qt.quantity;
-  }
 
   function onChange() {
     const value = getValues('quantity');
@@ -38,7 +30,7 @@ function ProductQuantity({ data }) {
         data-testid={ `customer_products__input-card-quantity-${id}` }
         { ...register('quantity', {
           min: 0,
-          value: getQt(),
+          value: quant,
           onChange: () => onChange(),
         }) }
       />
@@ -53,6 +45,7 @@ ProductQuantity.propTypes = {
     price: PropTypes.string,
     urlImage: PropTypes.string,
   }),
+  quant: PropTypes.number,
 };
 
 ProductQuantity.defaultProps = {
@@ -62,6 +55,7 @@ ProductQuantity.defaultProps = {
     price: 'b',
     urlImage: 'c',
   }),
+  quant: 0,
 };
 
 export default ProductQuantity;

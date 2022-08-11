@@ -7,11 +7,15 @@ function RemoveProductButton({ data }) {
   const { id } = data;
   const qt = getItem(id);
 
+  function rmProd(prodId, prod) {
+    updateItemQuantity(prodId, prod - 1);
+  }
+
   return (
     <button
       type="button"
       data-testid={ `customer_products__button-card-rm-item-${id}` }
-      onClick={ () => updateItemQuantity(id, qt.quantity - 1) }
+      onClick={ () => rmProd(id, qt.quantity) }
     >
       RMV
     </button>
