@@ -1,34 +1,17 @@
-import React, { useContext } from 'react';
+import React from 'react';
+import { useCart } from 'react-use-cart';
 import PropTypes from 'prop-types';
-import Context from '../context/Context';
 
 function RemoveProductButton({ data }) {
-  const {
-    prodCart,
-    setProdCart,
-  } = useContext(Context);
-
-  let prod = prodCart;
-  const { urlImage, name, id, price } = data;
-
-  function rmProd() {
-    if (prod !== undefined && prod !== null) {
-      prod.push({ urlImage, name, id, price });
-      localStorage.setItem('cart', JSON.stringify(prod));
-      setProdCart(prod);
-    } else {
-      prod = [];
-      prod.push({ urlImage, name, id, price });
-      localStorage.setItem('cart', JSON.stringify(prod));
-      setProdCart(prod);
-    }
-  }
+  const { updateItemQuantity, getItem } = useCart();
+  const { id } = data;
+  const qt = getItem(id);
 
   return (
     <button
       type="button"
       data-testid={ `customer_products__button-card-rm-item-${id}` }
-      onClick={ () => rmProd() }
+      onClick={ () => updateItemQuantity(id, qt.quantity - 1) }
     >
       RMV
     </button>
