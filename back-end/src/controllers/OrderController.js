@@ -20,13 +20,13 @@ const findById = async (req, res) => {
   }
 };
 
-const createOrder = async (req, res) => {
+const create = async (req, res) => {
 try {
-  const createdOrder = await OrderService.createOrder(req.body);
+  const createdOrder = await OrderService.create(req.body);
   return res.status(StatusCodes.CREATED).json({ createdOrder });
 } catch (Error) {
   return res.status(StatusCodes.NOT_FOUND).send({ message: Error.message });
   }
 };
 
-module.exports = { findAll, findById, createOrder };
+module.exports = { findAll, findById, create };
