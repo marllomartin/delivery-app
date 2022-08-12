@@ -1,6 +1,6 @@
 const router = require('express').Router();
 
-const { findAll, findById, create } = require('../controllers/OrderController');
+const { findAll, findById, create } = require('../controllers/SaleController');
 const authToken = require('../middlewares/authToken');
 
 router.get('/orders', findAll);
