@@ -4,7 +4,7 @@ const path = require('path');
 
 const UserRouter = require('../routes/UserRoutes');
 const ProductRouter = require('../routes/ProductRoutes');
-const OrderRouter = require('../routes/OrderRoutes');
+const SaleRouter = require('../routes/SaleRoutes');
 
 const ImagesPath = path.join(__dirname, '../images');
 
@@ -14,7 +14,7 @@ app.use(cors());
 
 app.use(express.json());
 
-app.use(UserRouter, ProductRouter, OrderRouter);
+app.use(UserRouter, ProductRouter, SaleRouter);
 
 app.use('/images', express.static(ImagesPath));
 
