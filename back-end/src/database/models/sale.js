@@ -32,6 +32,7 @@ const Sale = (sequelize, DataTypes) => {
     status: {
       allowNull: false,
       type: DataTypes.STRING,
+      defaultValue: 'Pendente',
     }
   },
     {
