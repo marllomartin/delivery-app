@@ -1,12 +1,14 @@
 const SalesProduct = (sequelize, DataTypes) => {
-  const SalesProduct = sequelize.define("salesProduct", {
+  const SalesProduct = sequelize.define('salesProduct', {
     saleId: {
       type: DataTypes.INTEGER,
-      primaryKey: true
+      primaryKey: true,
+      field: 'sale_id'
     },
     productId: {
       type: DataTypes.INTEGER,
-      primaryKey: true
+      primaryKey: true,
+      field: 'product_id'
     },
     quantity: {
       type: DataTypes.INTEGER
@@ -14,7 +16,6 @@ const SalesProduct = (sequelize, DataTypes) => {
   },
     {
       timestamps: false,
-      underscored: true,
     });
 
   SalesProduct.associate = (models) => {
@@ -28,7 +29,7 @@ const SalesProduct = (sequelize, DataTypes) => {
       as: 'sales',
       through: SalesProduct,
       foreignKey: 'productId',
-      otherKey: 'salesId'
+      otherKey: 'saleId'
     });
   };
 
