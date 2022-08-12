@@ -19,4 +19,13 @@ const register = async (req, res) => {
   }
 };
 
-module.exports = { login, register };
+const findAllSellers = async (req, res) => {
+  try {
+    const result = await UserService.findAllSellers();
+    return res.status(StatusCodes.OK).json(result);
+  } catch (Error) {
+    return res.status(StatusCodes.NOT_FOUND).send({ message: Error.message });
+  }
+};
+
+module.exports = { login, register, findAllSellers };
