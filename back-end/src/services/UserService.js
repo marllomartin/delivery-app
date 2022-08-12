@@ -36,4 +36,12 @@ const register = async (obj) => {
   };
 };
 
-module.exports = { login, register };
+const findAllSellers = async () => {
+  const sellers = await user.findAll({ where: { role: 'seller' } });
+
+  const sellersNames = sellers.map((seller) => seller.name);
+
+  return sellersNames;
+};
+
+module.exports = { login, register, findAllSellers };
