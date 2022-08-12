@@ -1,5 +1,5 @@
 const Sale = (sequelize, DataTypes) => {
-  const Sale = sequelize.define("sale", {
+  const Sale = sequelize.define('sale', {
     id: {
       type: DataTypes.INTEGER,
       primaryKey: true,
@@ -32,6 +32,7 @@ const Sale = (sequelize, DataTypes) => {
     status: {
       allowNull: false,
       type: DataTypes.STRING,
+      defaultValue: 'Pendente',
     }
   },
     {
