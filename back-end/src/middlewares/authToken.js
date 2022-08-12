@@ -12,12 +12,13 @@ const authToken = async (req, res, next) => {
 
   try {
     const decoded = jwt.decode(token, jwtSecret);
-    const verify = await user.findOne({ where: { email: decoded.payload.email } });
-    if (!verify) return res.status(StatusCodes.UNAUTHORIZED).json({ message: 'Invalid token' });
+    const findUser = await user.findOne({ where: { email: decoded.payload.email } });
+    if (!findUser) return res.status(StatusCodes.UNAUTHORIZED).json({ message: 'Invalid token' });
+    req.userId = findUser.id;
+    next();
   } catch (Error) {
     return res.status(StatusCodes.UNAUTHORIZED).json({ message: 'Invalid token' });
   }
-  next();
 };
 
 module.exports = authToken;
