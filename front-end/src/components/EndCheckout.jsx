@@ -18,4 +18,22 @@ function EndCheckout({ data }) {
   );
 }
 
+EndCheckout.propTypes = {
+  data: PropTypes.shape({
+    id: PropTypes.number,
+    name: PropTypes.string,
+    price: PropTypes.string,
+    urlImage: PropTypes.string,
+  }),
+};
+
+EndCheckout.defaultProps = {
+  data: PropTypes.shape({
+    name: 'a',
+    id: 999,
+    price: 'b',
+    urlImage: 'c',
+  }),
+};
+
 export default EndCheckout;
