@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import NavHeader from '../components/NavHeader';
 import ProductCard from '../components/ProductCard';
+import Cart from '../components/Cart';
 
 function ProductsPage() {
   const [productsList, setProductsList] = useState([]);
@@ -25,6 +26,7 @@ function ProductsPage() {
         <NavHeader />
       </div>
       <main>
+        <Cart />
         {productsList.map((prod) => (
           <ProductCard key={ `prodCard${prod.id}` } data={ prod } />
         ))}

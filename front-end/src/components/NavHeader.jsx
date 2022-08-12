@@ -4,8 +4,9 @@ import { useNavigate } from 'react-router-dom';
 function NavHeader() {
   const history = useNavigate();
   const [userData] = useState(JSON.parse(localStorage.getItem('user')));
+
   useEffect(() => {
-    if (userData.token === undefined) {
+    if (userData.token === undefined || userData.token === null) {
       localStorage.removeItem('user');
       history('/login');
     }
