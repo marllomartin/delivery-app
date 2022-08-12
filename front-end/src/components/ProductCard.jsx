@@ -21,7 +21,6 @@ function ProductCard({ data }) {
 
   const sendQtFunc = (solventstate) => {
     setProdQt(solventstate);
-    console.log('🚀 ~ file: ProductCard.jsx ~ line 21 ~ ProductCard ~ prodQt', prodQt);
   };
 
   const { urlImage, name, id, price } = data;
@@ -42,7 +41,12 @@ function ProductCard({ data }) {
         quant={ prodQt }
         sendQtFunc={ sendQtFunc }
       />
-      <ProductQuantity key={ `pq${id}` } data={ data } quant={ prodQt } />
+      <ProductQuantity
+        key={ `pq${id}` }
+        data={ data }
+        quant={ prodQt }
+        sendQtFunc={ sendQtFunc }
+      />
       <RemoveProductButton
         key={ `rm${id}` }
         data={ data }

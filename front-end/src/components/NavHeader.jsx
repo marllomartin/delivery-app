@@ -41,7 +41,7 @@ function NavHeader() {
         <button
           type="button"
           data-testid="customer_products__element-navbar-link-logout"
-          onClick={ () => exitApp }
+          onClick={ exitApp }
         >
           SAIR
         </button>

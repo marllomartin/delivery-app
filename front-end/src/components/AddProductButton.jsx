@@ -6,14 +6,14 @@ function AddProductButton({ data, sendQtFunc }) {
   const { addItem, getItem } = useCart();
   const { id } = data;
   const qt = getItem(id);
-  console.log('🚀 ~ file: AddProductButton.jsx ~ line 9 ~ AddProductButton ~ qt', qt);
 
   function addProd(prod) {
     addItem(prod);
-    if (qt.quantity !== undefined) {
-      sendQtFunc(qt.quantity);
+    if (qt !== undefined) {
+      sendQtFunc(qt.quantity + 1);
+    } else {
+      sendQtFunc(1);
     }
-    sendQtFunc(0);
   }
 
   return (
@@ -34,6 +34,7 @@ AddProductButton.propTypes = {
     price: PropTypes.string,
     urlImage: PropTypes.string,
   }),
+  sendQtFunc: PropTypes.func,
 };
 
 AddProductButton.defaultProps = {
@@ -43,6 +44,7 @@ AddProductButton.defaultProps = {
     price: 'b',
     urlImage: 'c',
   }),
+  sendQtFunc: PropTypes.func,
 };
 
 export default AddProductButton;
