@@ -10,6 +10,16 @@ module.exports = {
         sale_id: 2,
         product_id: 2,
         quantity: 3,
+      },
+      {
+        sale_id: 3,
+        product_id: 3,
+        quantity: 10,
+      },
+      {
+        sale_id: 4,
+        product_id: 3,
+        quantity: 10,
       }
       ], { timestamps: false });
   },
