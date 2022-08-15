@@ -44,7 +44,7 @@ const create = async (userId, data) => {
 
 const update = async (status, id) => {
   await sale.update({ status }, { where: { id } });
-  return { message: `Sale ${id} status was updated to '${status}' `};
+  return { message: `Sale ${id} status was updated to '${status}' ` };
 };
 
 module.exports = { findAll, getById, create, update };

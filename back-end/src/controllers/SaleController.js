@@ -42,4 +42,4 @@ const update = async (req, res) => {
   }
 };
 
-module.exports = { findAll, findById, create, update};
+module.exports = { findAll, findById, create, update };
