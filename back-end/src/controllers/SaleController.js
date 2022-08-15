@@ -31,4 +31,15 @@ const create = async (req, res) => {
   }
 };
 
-module.exports = { findAll, findById, create };
+const update = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const { status } = req.body;
+    const result = await SaleService.update(status, id);
+    return res.status(StatusCodes.CREATED).json(result);
+  } catch (Error) {
+    return res.status(StatusCodes.NOT_FOUND).send({ message: Error.message });
+  }
+};
+
+module.exports = { findAll, findById, create, update };
