@@ -1,9 +1,9 @@
 import React from 'react';
 
-function Orders() {
+function Order() {
   return (
     <h1>a</h1>
   );
 }
 
-export default Orders;
+export default Order;
