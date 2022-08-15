@@ -6,7 +6,7 @@ const {
   findAllBySeller,
   findById,
   create,
-  update
+  update,
 } = require('../controllers/SaleController');
 const authToken = require('../middlewares/authToken');
 const validateUpdateSale = require('../middlewares/validateUpdate');
