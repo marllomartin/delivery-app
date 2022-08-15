@@ -13,7 +13,7 @@ const findAllByUser = async (id) => {
 const findAllBySeller = async (id) => {
   const sales = await sale.findAll({ where: { sellerId: id } });
   return sales;
-}
+};
 
 const findById = async (id) => {
   const findSale = await sale.findByPk(
