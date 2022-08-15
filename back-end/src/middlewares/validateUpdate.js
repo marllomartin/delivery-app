@@ -3,8 +3,6 @@ const { StatusCodes } = require('http-status-codes');
 const validateUpdateSale = (req, res, next) => {
   const { status } = req.body;
 
-  if (error) return res.status(StatusCodes.NOT_FOUND).json({ message: error.message });
-
   if (
     status === 'Preparando'
     || status === 'Em Trânsito'
@@ -13,7 +11,7 @@ const validateUpdateSale = (req, res, next) => {
     return next();
   }
 
-  return res.status(StatusCodes.NOT_FOUND).json({ message: 'Incorrect Status' });
+  return res.status(StatusCodes.UNPROCESSABLE_ENTITY).json({ message: 'Incorrect Status' });
 };
 
-module.exports = validateUpdateSale; 
+module.exports = validateUpdateSale;
