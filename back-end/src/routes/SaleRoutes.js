@@ -7,7 +7,6 @@ const validateUpdateSale = require('../middlewares/validateUpdate');
 router.get('/orders', findAll);
 router.get('/orders/:id', findById);
 router.post('/orders', authToken, create);
-
-router.patch('/:id', validateUpdateSale, update);
+router.patch('/orders/:id', validateUpdateSale, update);
 
 module.exports = router;
