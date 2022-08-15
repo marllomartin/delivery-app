@@ -39,7 +39,7 @@ const register = async (obj) => {
 const findAllSellers = async () => {
   const sellers = await user.findAll({ where: { role: 'seller' } });
 
-  const sellersNames = sellers.map((seller) => seller.name);
+  const sellersNames = sellers.map((seller) => seller);
 
   return sellersNames;
 };

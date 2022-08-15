@@ -1,20 +1,62 @@
 import PropTypes from 'prop-types';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useCart } from 'react-use-cart';
 import { useForm } from 'react-hook-form';
 
-function EndCheckout({ data }) {
+function EndCheckout({ data, total }) {
+  const { emptyCart } = useCart();
+  const [sellers, setSellers] = useState([]);
   const {
     register,
     handleSubmit,
     formState: { errors, isDirty, isValid },
   } = useForm({ mode: 'onChange' });
 
-  function checkout() {
-    console.log(
-      '🚀 ~ file: EndCheckout.jsx ~ line 4 ~ EndCheckout ~ data',
-      data,
-    );
-  }
+  const history = useNavigate();
+  const created = 201;
+
+  const checkout = async (addressData) => {
+    const user = JSON.parse(localStorage.getItem('user'));
+
+    const checkoutData = {
+      sellerId: addressData.seller,
+      totalPrice: total,
+      deliveryAddress: addressData.deliveryAddress,
+      deliveryNumber: addressData.deliveryNumber,
+      products: data,
+    };
+
+    fetch('http://localhost:3001/orders', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        authorization: user.token,
+      },
+      body: JSON.stringify(checkoutData),
+    }).then(async (response) => {
+      if (response.status === created) {
+        return response.json();
+      }
+    }).then((res) => {
+      emptyCart();
+      history(`/customer/orders/${res.id}`);
+    });
+  };
+
+  const getSellers = async () => fetch('http://localhost:3001/sellers', {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  }).then((response) => response.json())
+    .then((res) => {
+      setSellers(res);
+    });
+
+  useEffect(() => {
+    getSellers();
+  });
 
   return (
     <div>
@@ -24,11 +66,11 @@ function EndCheckout({ data }) {
           <select
             data-testid="customer_checkout__select-seller"
             id="seller"
-            { ...register('category') }
+            { ...register('seller') }
           >
-            <option value="">Select...</option>
-            <option value="A">Category A</option>
-            <option value="B">Category B</option>
+            {sellers.map((seller) => (
+              <option key={ seller.name } value={ seller.id }>{ seller.name }</option>
+            ))}
           </select>
         </label>
         <br />
@@ -73,6 +115,7 @@ EndCheckout.propTypes = {
     price: PropTypes.string,
     urlImage: PropTypes.string,
   }),
+  total: PropTypes.number,
 };
 
 EndCheckout.defaultProps = {
@@ -82,6 +125,7 @@ EndCheckout.defaultProps = {
     price: 'b',
     urlImage: 'c',
   }),
+  total: 0,
 };
 
 export default EndCheckout;
