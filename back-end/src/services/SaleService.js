@@ -5,7 +5,17 @@ const findAll = async () => {
   return sales;
 };
 
-const getById = async (id) => {
+const findAllByUser = async (id) => {
+  const sales = await sale.findAll({ where: { userId: id } });
+  return sales;
+};
+
+const findAllBySeller = async (id) => {
+  const sales = await sale.findAll({ where: { sellerId: id } });
+  return sales;
+}
+
+const findById = async (id) => {
   const findSale = await sale.findByPk(
     id,
     {
@@ -47,4 +57,4 @@ const update = async (status, id) => {
   return { message: `Sale ${id} status was updated to '${status}' ` };
 };
 
-module.exports = { findAll, getById, create, update };
+module.exports = { findAll, findAllByUser, findAllBySeller, findById, create, update };
