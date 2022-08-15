@@ -37,7 +37,7 @@ const update = async (req, res) => {
     const { status } = req.body;
     const result = await SaleService.update(status, id);
     return res.status(StatusCodes.CREATED).json(result);
-  } catch (e) {
+  } catch (Error) {
     return res.status(StatusCodes.NOT_FOUND).send({ message: Error.message });
   }
 };
