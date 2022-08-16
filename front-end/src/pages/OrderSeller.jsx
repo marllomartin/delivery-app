@@ -5,23 +5,70 @@ import NavHeaderSeller from '../components/NavHeaderSeller';
 function OrderSeller() {
   const { id } = useParams();
   const [sale, setSale] = useState([]);
-  console.log('🚀 ~ file: Order.jsx ~ line 8 ~ Order ~ sale', sale);
+  const [prepButton, setPrepButton] = useState(true);
+  const [dispButton, setDispButton] = useState(true);
 
-  const loadSale = async () => fetch(`http://localhost:3001/orders/${id}`, {
-    method: 'GET',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-  })
-    .then((response) => response.json())
-    .then((res) => {
-      setSale(res);
-    });
+  const appJson = 'application/json';
+
+  const loadSale = async () => {
+    const result = fetch(`http://localhost:3001/orders/${id}`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': appJson,
+      },
+    })
+      .then((response) => response.json())
+      .then((res) => {
+        if (res.status === 'Pendente') {
+          setPrepButton(false);
+          setDispButton(true);
+        }
+
+        if (res.status === 'Preparando') {
+          setDispButton(false);
+          setPrepButton(true);
+        }
+
+        if (res.status === 'Em Trânsito') {
+          setDispButton(true);
+          setPrepButton(true);
+        }
+        return res;
+      });
+    return result;
+  };
+
+  const responseOrders = async () => {
+    const data = await loadSale();
+    setSale(data);
+  };
 
   useEffect(() => {
-    loadSale();
+    responseOrders();
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [sale]);
+
+  function preparingCheck() {
+    fetch(`http://localhost:3001/orders/${id}`, {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': appJson,
+      },
+      body: JSON.stringify({ status: 'Preparando' }),
+    });
+    responseOrders();
+  }
+
+  function dispatchCheck() {
+    fetch(`http://localhost:3001/orders/${id}`, {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': appJson,
+      },
+      body: JSON.stringify({ status: 'Em Trânsito' }),
+    });
+    responseOrders();
+  }
 
   return (
     <div>
@@ -47,6 +94,8 @@ function OrderSeller() {
       <button
         type="button"
         data-testid="seller_order_details__button-preparing-check"
+        onClick={ () => preparingCheck() }
+        disabled={ prepButton }
       >
         Preparo
       </button>
@@ -54,6 +103,8 @@ function OrderSeller() {
       <button
         type="button"
         data-testid="seller_order_details__button-dispatch-check"
+        onClick={ () => dispatchCheck() }
+        disabled={ dispButton }
       >
         Entrega
       </button>
