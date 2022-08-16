@@ -26,7 +26,9 @@ function LoginCard() {
     } else {
       const res = await response.json();
       localStorage.setItem('user', JSON.stringify(res));
-      history('/customer/products');
+      history('/customer/products', {
+        replace: true,
+      });
     }
   });
   // console.log(errors);
