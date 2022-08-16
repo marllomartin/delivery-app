@@ -21,14 +21,8 @@ function NavHeader() {
     <header>
       <nav>
         <a
-          data-testid="customer_products__element-navbar-link-products"
-          href="/customer/products"
-        >
-          PRODUTOS
-        </a>
-        <a
           data-testid="customer_products__element-navbar-link-orders"
-          href="/customer/orders/"
+          href="/seller/orders/"
         >
           MEUS PEDIDOS
         </a>
