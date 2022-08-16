@@ -20,7 +20,6 @@ function Order() {
 
   useEffect(() => {
     loadSale();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
