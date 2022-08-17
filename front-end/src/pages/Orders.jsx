@@ -15,7 +15,7 @@ function Orders() {
   };
   useEffect(() => {
     responseOrders();
-  }, [orders]);
+  }, []);
   return (
     <>
       <header>

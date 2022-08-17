@@ -24,11 +24,15 @@ function LoginCard() {
     if (response.status === notFount) {
       setInvalidLogin(true);
     } else {
-      const res = await response.json();
+      return response.json();
+    }
+  }).then((res) => {
+    if (res.role === 'customer') {
       localStorage.setItem('user', JSON.stringify(res));
-      history('/customer/products', {
-        replace: true,
-      });
+      history('/customer/products');
+    } else if (res.role === 'seller') {
+      localStorage.setItem('user', JSON.stringify(res));
+      history('/seller/orders');
     }
   });
   // console.log(errors);
