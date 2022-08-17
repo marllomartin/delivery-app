@@ -64,7 +64,7 @@ function RegisterAdm() {
         </select>
         {errors.exampleRequired && <span>This field is required</span>}
         {invalidRegister && (
-          <span data-testid="admin_manage__input-password">
+          <span data-testid="admin_manage__element-invalid-register">
             Registro invalido
           </span>
         )}
