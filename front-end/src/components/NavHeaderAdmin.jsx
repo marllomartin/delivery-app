@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-function NavHeaderSeller() {
+function NavHeaderAdmin() {
   const history = useNavigate();
   const [userData] = useState(JSON.parse(localStorage.getItem('user')));
 
@@ -22,9 +22,9 @@ function NavHeaderSeller() {
       <nav>
         <a
           data-testid="customer_products__element-navbar-link-orders"
-          href="/seller/orders/"
+          href="/admin/manage/"
         >
-          MEUS PEDIDOS
+          Gerenciar Usuarios
         </a>
         <a
           data-testid="customer_products__element-navbar-user-full-name"
@@ -44,4 +44,4 @@ function NavHeaderSeller() {
   );
 }
 
-export default NavHeaderSeller;
+export default NavHeaderAdmin;
