@@ -1,17 +1,37 @@
-const { sale, user, salesProduct } = require('../database/models');
+const { sale, user, salesProduct, product } = require('../database/models');
 
 const findAll = async () => {
-  const sales = await sale.findAll();
+  const sales = await sale.findAll({
+    include: [
+      { model: user, as: 'user', attributes: { exclude: ['id', 'password', 'role'] } },
+      { model: user, as: 'seller', attributes: { exclude: ['id', 'password', 'role'] } },
+      { model: product, as: 'products' },
+    ],
+  });
   return sales;
 };
 
 const findAllByUser = async (id) => {
-  const sales = await sale.findAll({ where: { userId: id } });
+  const sales = await sale.findAll({
+    where: { userId: id },
+    include: [
+      { model: user, as: 'user', attributes: { exclude: ['id', 'password', 'role'] } },
+      { model: user, as: 'seller', attributes: { exclude: ['id', 'password', 'role'] } },
+      { model: product, as: 'products' },
+    ],
+  });
   return sales;
 };
 
 const findAllBySeller = async (id) => {
-  const sales = await sale.findAll({ where: { sellerId: id } });
+  const sales = await sale.findAll({
+    where: { sellerId: id },
+    include: [
+      { model: user, as: 'user', attributes: { exclude: ['id', 'password', 'role'] } },
+      { model: user, as: 'seller', attributes: { exclude: ['id', 'password', 'role'] } },
+      { model: product, as: 'products' },
+    ],
+  });
   return sales;
 };
 
@@ -19,9 +39,10 @@ const findById = async (id) => {
   const findSale = await sale.findByPk(
     id,
     {
-      includes: [
-        { model: user, as: 'user', attributes: { exclude: ['password'] } },
+      include: [
+        { model: user, as: 'user', attributes: { exclude: ['id', 'password', 'role'] } },
         { model: user, as: 'seller', attributes: { exclude: ['id', 'password', 'role'] } },
+        { model: product, as: 'products' },
       ],
     },
   );
@@ -41,10 +62,10 @@ const create = async (userId, data) => {
     status: 'Pendente',
   });
 
-  const newSalesProduct = await products.map((product) => ({
+  const newSalesProduct = await products.map((x) => ({
     saleId: newSale.id,
-    productId: product.id,
-    quantity: product.quantity,
+    productId: x.id,
+    quantity: x.quantity,
   }));
 
   await salesProduct.bulkCreate(newSalesProduct);
