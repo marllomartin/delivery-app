@@ -3,6 +3,7 @@ const express = require('express');
 const path = require('path');
 
 const UserRouter = require('../routes/UserRoutes');
+const AdminRouter = require('../routes/AdminRoutes');
 const ProductRouter = require('../routes/ProductRoutes');
 const SaleRouter = require('../routes/SaleRoutes');
 
@@ -14,7 +15,7 @@ app.use(cors());
 
 app.use(express.json());
 
-app.use(UserRouter, ProductRouter, SaleRouter);
+app.use(UserRouter, AdminRouter, ProductRouter, SaleRouter);
 
 app.use('/images', express.static(ImagesPath));
 

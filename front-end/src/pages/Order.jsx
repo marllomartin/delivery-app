@@ -5,22 +5,50 @@ import NavHeader from '../components/NavHeader';
 function Order() {
   const { id } = useParams();
   const [sale, setSale] = useState([]);
-  console.log('🚀 ~ file: Order.jsx ~ line 8 ~ Order ~ sale', sale);
+  const [delivButton, setDelivButton] = useState(true);
 
-  const loadSale = async () => fetch(`http://localhost:3001/orders/${id}`, {
-    method: 'GET',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-  })
-    .then((response) => response.json())
-    .then((res) => {
-      setSale(res);
-    });
+  const appJson = 'application/json';
+
+  const loadSale = async () => {
+    const result = fetch(`http://localhost:3001/orders/${id}`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': appJson,
+      },
+    })
+      .then((response) => response.json())
+      .then((res) => {
+        if (res.status === 'Em Trânsito') {
+          setDelivButton(false);
+        } else {
+          setDelivButton(true);
+        }
+        return res;
+      });
+    return result;
+  };
+
+  const responseOrders = async () => {
+    const data = await loadSale();
+    setSale(data);
+  };
 
   useEffect(() => {
     loadSale();
   }, []);
+  responseOrders();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+
+  function deliveredCheck() {
+    fetch(`http://localhost:3001/orders/${id}`, {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': appJson,
+      },
+      body: JSON.stringify({ status: 'Entregue' }),
+    });
+    responseOrders();
+  }
 
   return (
     <div>
@@ -50,6 +78,8 @@ function Order() {
       <button
         type="button"
         data-testid="customer_order_details__button-delivery-check"
+        onClick={ () => deliveredCheck() }
+        disabled={ delivButton }
       >
         a
       </button>
