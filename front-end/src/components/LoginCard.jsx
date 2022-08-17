@@ -33,6 +33,9 @@ function LoginCard() {
     } else if (res.role === 'seller') {
       localStorage.setItem('user', JSON.stringify(res));
       history('/seller/orders');
+    } else if (res.role === 'administrator') {
+      localStorage.setItem('user', JSON.stringify(res));
+      history('/admin/manage');
     }
   });
   // console.log(errors);
