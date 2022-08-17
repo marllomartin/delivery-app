@@ -56,7 +56,7 @@ function EndCheckout({ data, total }) {
 
   useEffect(() => {
     getSellers();
-  });
+  }, []);
 
   return (
     <div>
