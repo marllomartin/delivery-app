@@ -17,18 +17,6 @@ const login = async (obj) => {
   };
 };
 
-// const findSellerByEmail = async (email) => {
-//   const verify = await user.findOne({ where: { email } });
-
-//   if (!verify) throw new Error('Invalid fields');
-
-//   return {
-//     id: verify.id,
-//     name: verify.name,
-//     email: verify.email,
-//   };
-// };
-
 const register = async (obj) => {
   const { name, email, password } = obj;
   const verifyEmail = await user.findOne({ where: { email } });

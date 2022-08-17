@@ -10,16 +10,6 @@ const login = async (req, res) => {
   }
 };
 
-// const findSellerByEmail = async (req, res) => {
-//   try {
-//     const { email } = req.params;
-//     const result = await UserService.findSellerByEmail(email);
-//     return res.status(StatusCodes.OK).json(result);
-//   } catch (Error) {
-//     return res.status(StatusCodes.NOT_FOUND).send({ message: Error.message });
-//   }
-// };
-
 const register = async (req, res) => {
   try {
     const result = await UserService.register(req.body);
