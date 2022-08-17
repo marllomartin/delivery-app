@@ -15,6 +15,7 @@ const authToken = async (req, res, next) => {
     const findUser = await user.findOne({ where: { email: decoded.payload.email } });
     if (!findUser) return res.status(StatusCodes.UNAUTHORIZED).json({ message: 'Invalid token' });
     req.userId = findUser.id;
+    req.userRole = findUser.role;
     next();
   } catch (Error) {
     return res.status(StatusCodes.UNAUTHORIZED).json({ message: 'Invalid token' });

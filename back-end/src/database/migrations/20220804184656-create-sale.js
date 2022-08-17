@@ -14,7 +14,9 @@ module.exports = {
         references: {
           model: 'users',
           key: 'id'
-        }
+        },
+        onUpdate: 'CASCADE',
+        onDelete: 'CASCADE'
       },
       sellerId: {
         type: Sequelize.INTEGER,
@@ -22,10 +24,12 @@ module.exports = {
         references: {
           model: 'users',
           key: 'id'
-        }
+        },
+        onUpdate: 'CASCADE',
+        onDelete: 'CASCADE'
       },
       totalPrice: {
-        type: Sequelize.DECIMAL(9,2),
+        type: Sequelize.DECIMAL(9, 2),
         field: 'total_price',
       },
       deliveryAddress: {
