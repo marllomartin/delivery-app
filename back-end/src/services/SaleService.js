@@ -73,9 +73,9 @@ const create = async (userId, data) => {
   return newSale;
 };
 
-const updateStatus = async (status, id) => {
+const update = async (status, id) => {
   await sale.update({ status }, { where: { id } });
   return { message: `Sale ${id} status was updated to '${status}' ` };
 };
 
-module.exports = { findAll, findAllByUser, findAllBySeller, findById, create, updateStatus };
+module.exports = { findAll, findAllByUser, findAllBySeller, findById, create, update };
