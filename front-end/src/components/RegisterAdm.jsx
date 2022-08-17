@@ -12,21 +12,24 @@ function RegisterAdm() {
 
   const Conflict = 409;
 
-  const registerUser = async (data) => fetch('http://localhost:3001/registerAdm', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      authorization: user.token,
-    },
-    body: JSON.stringify(data),
-  }).then(async (response) => {
-    if (response.status === Conflict) {
-      setInvalidRegister(true);
-    } else {
-      const res = await response.json();
-      return res;
-    }
-  });
+  const registerUser = async (data) => {
+    const user = JSON.parse(localStorage.getItem('user'));
+    fetch('http://localhost:3001/admin/register', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        authorization: user.token,
+      },
+      body: JSON.stringify(data),
+    }).then(async (response) => {
+      if (response.status === Conflict) {
+        setInvalidRegister(true);
+      } else {
+        const res = await response.json();
+        return res;
+      }
+    });
+  };
 
   // console.log(errors);
 
