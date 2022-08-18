@@ -1,16 +1,16 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 function NavHeaderSeller() {
   const history = useNavigate();
   const [userData] = useState(JSON.parse(localStorage.getItem('user')));
 
-  useEffect(() => {
-    if (userData.token === undefined || userData.token === null) {
-      localStorage.removeItem('user');
-      history('/login');
-    }
-  }, [history, userData.token]);
+  // useEffect(() => {
+  //   if (userData.token === undefined || userData.token === null) {
+  //     localStorage.removeItem('user');
+  //     history('/login');
+  //   }
+  // }, [history, userData.token]);
 
   function exitApp() {
     localStorage.removeItem('user');
@@ -22,7 +22,7 @@ function NavHeaderSeller() {
       <nav>
         <a
           data-testid="customer_products__element-navbar-link-orders"
-          href="/seller/orders/"
+          href="/seller/orders"
         >
           MEUS PEDIDOS
         </a>

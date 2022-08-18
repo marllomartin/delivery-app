@@ -6,11 +6,11 @@ function NavHeader() {
   const [userData] = useState(JSON.parse(localStorage.getItem('user')));
 
   useEffect(() => {
-    if (userData.token === undefined || userData.token === null) {
+    if (userData === undefined || userData === null) {
       localStorage.removeItem('user');
       history('/login');
     }
-  }, [history, userData.token]);
+  }, [history, userData]);
 
   function exitApp() {
     localStorage.removeItem('user');
@@ -28,7 +28,7 @@ function NavHeader() {
         </a>
         <a
           data-testid="customer_products__element-navbar-link-orders"
-          href="/customer/orders/"
+          href="/customer/orders"
         >
           MEUS PEDIDOS
         </a>
