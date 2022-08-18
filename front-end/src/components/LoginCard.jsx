@@ -8,8 +8,8 @@ function LoginCard() {
   const {
     register,
     handleSubmit,
-    formState: { errors, isDirty, isValid },
-  } = useForm({ mode: 'onChange' });
+    formState: { errors, isValid },
+  } = useForm({ mode: 'onChange', reValidateMode: 'onChange' });
 
   const history = useNavigate();
   const notFount = 404;
@@ -67,7 +67,7 @@ function LoginCard() {
         <button
           type="submit"
           data-testid="common_login__button-login"
-          disabled={ !isDirty || !isValid }
+          disabled={ !isValid }
         >
           Login
         </button>
