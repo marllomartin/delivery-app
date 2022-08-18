@@ -5,6 +5,9 @@ import NavHeader from '../components/NavHeader';
 function Order() {
   const { id } = useParams();
   const [sale, setSale] = useState([]);
+  const [sellerName, setSellerName] = useState('');
+  const [sellDate, setSellDate] = useState('');
+  const [totalPrice, setTotalPrice] = useState('');
   const [delivButton, setDelivButton] = useState(true);
 
   const appJson = 'application/json';
@@ -31,6 +34,10 @@ function Order() {
   const responseOrders = async () => {
     const data = await loadSale();
     setSale(data);
+    setSellerName(data.seller);
+    const d = new Date(data.saleDate);
+    setSellDate(d.toLocaleDateString('en-GB'));
+    setTotalPrice(data.totalPrice.replace(/\./, ','));
   };
 
   useEffect(() => {
@@ -58,11 +65,11 @@ function Order() {
       </p>
 
       <p data-testid="customer_order_details__element-order-details-label-seller-name">
-        {sale.sellerId}
+        {sellerName.name}
       </p>
 
       <p data-testid="customer_order_details__element-order-details-label-order-date">
-        {sale.saleDate}
+        {sellDate}
       </p>
 
       <p
@@ -72,7 +79,7 @@ function Order() {
       </p>
 
       <p data-testid="customer_order_details__element-order-total-price">
-        {sale.totalPrice}
+        {totalPrice}
       </p>
 
       <button
