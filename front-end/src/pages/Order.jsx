@@ -41,10 +41,9 @@ function Order() {
   };
 
   useEffect(() => {
-    loadSale();
+    responseOrders();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-  responseOrders();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
 
   function deliveredCheck() {
     fetch(`http://localhost:3001/orders/${id}`, {
