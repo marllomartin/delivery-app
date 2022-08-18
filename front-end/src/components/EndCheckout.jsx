@@ -38,9 +38,9 @@ function EndCheckout({ data, total }) {
       if (response.status === created) {
         return response.json();
       }
-    }).then(() => {
+    }).then((res) => {
       emptyCart();
-      history('/customer/products/');
+      history(`/customer/orders/${res.id}`);
     });
   };
 
