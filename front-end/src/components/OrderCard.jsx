@@ -1,7 +1,15 @@
 import PropTypes from 'prop-types';
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 function OrderCard({ data }) {
+  const [sellDate, setSellDate] = useState('');
+
+  useEffect(() => {
+    const d = new Date(data.saleDate);
+    setSellDate(d.toLocaleDateString('en-GB'));
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   return (
     <div>
       <p data-testid={ `seller_orders__element-order-id-${data.id}` }>
@@ -9,7 +17,7 @@ function OrderCard({ data }) {
       </p>
 
       <p data-testid={ `seller_orders__element-order-date-${data.id}` }>
-        {data.saleDate}
+        {sellDate}
       </p>
 
       <p
@@ -19,7 +27,7 @@ function OrderCard({ data }) {
       </p>
 
       <p data-testid={ `seller_orders__element-card-price-${data.id}` }>
-        {data.totalPrice}
+        {data.totalPrice.replace(/\./, ',')}
       </p>
 
       <p data-testid={ `seller_orders__element-card-address-${data.id}` }>
