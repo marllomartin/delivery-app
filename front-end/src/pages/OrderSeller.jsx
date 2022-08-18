@@ -5,6 +5,8 @@ import NavHeaderSeller from '../components/NavHeaderSeller';
 function OrderSeller() {
   const { id } = useParams();
   const [sale, setSale] = useState([]);
+  const [sellDate, setSellDate] = useState('');
+  const [totalPrice, setTotalPrice] = useState('');
   const [prepButton, setPrepButton] = useState(true);
   const [dispButton, setDispButton] = useState(true);
 
@@ -41,6 +43,9 @@ function OrderSeller() {
   const responseOrders = async () => {
     const data = await loadSale();
     setSale(data);
+    const d = new Date(data.saleDate);
+    setSellDate(d.toLocaleDateString('en-GB'));
+    setTotalPrice(data.totalPrice.replace(/\./, ','));
   };
 
   useEffect(() => {
@@ -78,17 +83,17 @@ function OrderSeller() {
       </p>
 
       <p data-testid="seller_order_details__element-order-details-label-order-date">
-        {sale.saleDate}
+        {sellDate}
       </p>
 
       <p
-        data-testid=" seller_order_details__element-order-details-label-delivery-status"
+        data-testid="seller_order_details__element-order-details-label-delivery-status"
       >
         {sale.status}
       </p>
 
       <p data-testid="seller_order_details__element-order-total-price">
-        {sale.totalPrice}
+        {totalPrice}
       </p>
 
       <button
