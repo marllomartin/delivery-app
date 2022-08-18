@@ -22,7 +22,7 @@ function NavHeaderSeller() {
       <nav>
         <a
           data-testid="customer_products__element-navbar-link-orders"
-          href="/seller/orders/"
+          href="/seller/orders"
         >
           MEUS PEDIDOS
         </a>

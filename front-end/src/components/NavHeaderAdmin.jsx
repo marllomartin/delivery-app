@@ -22,7 +22,7 @@ function NavHeaderAdmin() {
       <nav>
         <a
           data-testid="customer_products__element-navbar-link-orders"
-          href="/admin/manage/"
+          href="/admin/manage"
         >
           Gerenciar Usuarios
         </a>
