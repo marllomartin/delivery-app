@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import NavHeader from '../components/NavHeader';
+import OrderCardCust from '../components/OrderCardCust';
 
 const fatchOrder = async () => {
   const url = 'http://localhost:3001/orders';
@@ -22,18 +24,10 @@ function Orders() {
         <NavHeader />
       </header>
       <ul>
-        {orders.map(({ id, status, saleDate, price }) => (
-          <div key={ id }>
-            <p>pedido</p>
-            <p data-testid={ `customer_orders__element-order-id-${id}` }>{id}</p>
-            <p data-testid={ `customer_orders__element-delivery-status-${id}` }>
-              {status}
-            </p>
-            <p data-testid={ `customer_orders__element-order-date-${id}` }>
-              {saleDate}
-            </p>
-            <p data-testid={ `customer_orders__element-card-price-${id}` }>{price}</p>
-          </div>
+        {orders.map((prod) => (
+          <Link to={ `/customer/orders/${prod.id}` } key={ `saleCardCust${prod.id}` }>
+            <OrderCardCust data={ prod } />
+          </Link>
         ))}
       </ul>
     </>
