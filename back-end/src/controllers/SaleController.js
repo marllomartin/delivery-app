@@ -43,10 +43,8 @@ const findById = async (req, res) => {
 const create = async (req, res) => {
   try {
     const data = req.body;
-    console.log(data)
     const { userId } = req;
     const createdSale = await SaleService.create(userId, data);
-    console.log(createdSale)
     return res.status(StatusCodes.CREATED).json(createdSale);
   } catch (Error) {
     return res.status(StatusCodes.NOT_FOUND).send({ message: Error.message });
