@@ -10,7 +10,7 @@ import OrderSeller from './pages/OrderSeller';
 import OrdersSeller from './pages/OrdersSeller';
 import UserManagement from './pages/UserManagement';
 import Provider from './context/Provider';
-// import './App.css';
+import './App.css';
 
 function App() {
   return (

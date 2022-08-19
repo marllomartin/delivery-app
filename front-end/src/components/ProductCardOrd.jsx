@@ -6,7 +6,7 @@ function ProductCardOrd({ data }) {
   const itemTot = (price * salesProduct.quantity).toFixed(2);
 
   return (
-    <div>
+    <div className="cartCard">
       <p
         data-testid={ `customer_checkout__element-order-table-item-number-${id}` }
       >
@@ -18,12 +18,18 @@ function ProductCardOrd({ data }) {
       <p data-testid={ `customer_checkout__element-order-table-quantity-${id}` }>
         {salesProduct.quantity}
       </p>
-      <p data-testid={ `customer_checkout__element-order-table-unit-price-${id}` }>
-        {price.replace(/\./, ',')}
-      </p>
-      <p data-testid={ `customer_checkout__element-order-table-sub-total-${id}` }>
-        {itemTot.replace(/\./, ',')}
-      </p>
+      <div>
+        <span>R$ </span>
+        <span data-testid={ `customer_checkout__element-order-table-unit-price-${id}` }>
+          {price.replace(/\./, ',')}
+        </span>
+      </div>
+      <div>
+        <span>R$ </span>
+        <span data-testid={ `customer_checkout__element-order-table-sub-total-${id}` }>
+          {itemTot.replace(/\./, ',')}
+        </span>
+      </div>
     </div>
   );
 }

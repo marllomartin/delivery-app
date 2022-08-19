@@ -62,40 +62,44 @@ function Order() {
   return (
     <div>
       <NavHeader />
-      <article>
-        <p data-testid="customer_order_details__element-order-details-label-order-id">
-          {sale.id}
-        </p>
+      <article className="order">
+        <header className="orderDetail">
+          <p data-testid="customer_order_details__element-order-details-label-order-id">
+            {sale.id}
+          </p>
 
-        <p data-testid="customer_order_details__element-order-details-label-seller-name">
-          {sellerName.name}
-        </p>
+          <p
+            data-testid="customer_order_details__element-order-details-label-seller-name"
+          >
+            {sellerName.name}
+          </p>
 
-        <p data-testid="customer_order_details__element-order-details-label-order-date">
-          {sellDate}
-        </p>
+          <p data-testid="customer_order_details__element-order-details-label-order-date">
+            {sellDate}
+          </p>
 
-        <p
-          data-testid={ dataTest }
-        >
-          {sale.status}
-        </p>
+          <p data-testid={ dataTest }>{sale.status}</p>
+        </header>
 
         {products.map((prod, index) => (
           <ProductCardOrd key={ `prodCartOrd${prod.id}` } data={ prod } i={ index } />
         ))}
-
-        <p data-testid="customer_order_details__element-order-total-price">
-          {totalPrice}
-        </p>
-
+        <div>
+          <br />
+          <span>TOTAL: </span>
+          <span>R$ </span>
+          <span data-testid="customer_order_details__element-order-total-price">
+            {totalPrice}
+          </span>
+        </div>
+        <br />
         <button
           type="button"
           data-testid="customer_order_details__button-delivery-check"
           onClick={ () => deliveredCheck() }
           disabled={ delivButton }
         >
-          Checkout
+          PEDIDO RECEBIDO
         </button>
       </article>
     </div>

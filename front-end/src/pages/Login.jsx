@@ -24,6 +24,7 @@ function Login() {
 
   return (
     <div className="LoginPage">
+      <h1>CHICO DELIVERY</h1>
       <LoginCard />
     </div>
   );

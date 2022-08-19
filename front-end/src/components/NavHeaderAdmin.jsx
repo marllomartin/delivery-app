@@ -19,20 +19,23 @@ function NavHeaderAdmin() {
 
   return (
     <header>
-      <nav>
+      <nav className="navBarSeller">
         <a
+          role="button"
           data-testid="customer_products__element-navbar-link-orders"
           href="/admin/manage"
         >
           Gerenciar Usuarios
         </a>
         <a
+          role="button"
           data-testid="customer_products__element-navbar-user-full-name"
           href="perfil"
         >
-          { userData.name }
+          {userData.name}
         </a>
         <button
+          className="outline"
           type="button"
           data-testid="customer_products__element-navbar-link-logout"
           onClick={ exitApp }

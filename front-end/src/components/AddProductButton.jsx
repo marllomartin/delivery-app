@@ -18,6 +18,7 @@ function AddProductButton({ data, sendQtFunc }) {
 
   return (
     <button
+      className="buttonA"
       type="button"
       data-testid={ `customer_products__button-card-add-item-${id}` }
       onClick={ () => addProd(data) }

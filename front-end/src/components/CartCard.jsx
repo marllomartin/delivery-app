@@ -9,7 +9,7 @@ function CartCard({ data, i }) {
   const itemTot = String(prod.itemTotal.toFixed(2));
 
   return (
-    <div>
+    <div className="cartCard">
       <p
         data-testid={ `customer_checkout__element-order-table-item-number-${i}` }
       >
@@ -21,12 +21,18 @@ function CartCard({ data, i }) {
       <p data-testid={ `customer_checkout__element-order-table-quantity-${i}` }>
         {prod.quantity}
       </p>
-      <p data-testid={ `customer_checkout__element-order-table-unit-price-${i}` }>
-        {prod.price.replace(/\./, ',')}
-      </p>
-      <p data-testid={ `customer_checkout__element-order-table-sub-total-${i}` }>
-        {itemTot.replace(/\./, ',')}
-      </p>
+      <div className="price">
+        <span>R$: </span>
+        <span data-testid={ `customer_checkout__element-order-table-unit-price-${i}` }>
+          {prod.price.replace(/\./, ',')}
+        </span>
+      </div>
+      <div className="price">
+        <span>R$: </span>
+        <span data-testid={ `customer_checkout__element-order-table-sub-total-${i}` }>
+          {itemTot.replace(/\./, ',')}
+        </span>
+      </div>
       <button
         type="button"
         data-testid={ `customer_checkout__element-order-table-remove-${i}` }

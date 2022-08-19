@@ -42,7 +42,6 @@ function LoginCard() {
 
   return (
     <article className="LoginCard">
-      <h1>APP NAME</h1>
       <form onSubmit={ handleSubmit(login) }>
         <input
           type="email"

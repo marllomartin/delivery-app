@@ -59,7 +59,7 @@ function EndCheckout({ data, total }) {
   }, []);
 
   return (
-    <article>
+    <article className="article">
       <form onSubmit={ handleSubmit(checkout) }>
         <label htmlFor="seller">
           Vendedor:

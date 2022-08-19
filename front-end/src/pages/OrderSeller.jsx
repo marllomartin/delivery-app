@@ -82,16 +82,18 @@ function OrderSeller() {
   return (
     <div>
       <NavHeaderSeller />
-      <article>
-        <p data-testid="seller_order_details__element-order-details-label-order-id">
-          {sale.id}
-        </p>
+      <article className="order">
+        <header className="orderDetail">
+          <p data-testid="seller_order_details__element-order-details-label-order-id">
+            {sale.id}
+          </p>
 
-        <p data-testid="seller_order_details__element-order-details-label-order-date">
-          {sellDate}
-        </p>
+          <p data-testid="seller_order_details__element-order-details-label-order-date">
+            {sellDate}
+          </p>
 
-        <p data-testid={ dataTest }>{sale.status}</p>
+          <p data-testid={ dataTest }>{sale.status}</p>
+        </header>
 
         {products.map((prod, index) => (
           <ProductCardOrd key={ `prodCartOrd${prod.id}` } data={ prod } i={ index } />
@@ -100,7 +102,7 @@ function OrderSeller() {
         <p data-testid="seller_order_details__element-order-total-price">
           {totalPrice}
         </p>
-        <div>
+        <div className="sellerButton">
           <button
             type="button"
             data-testid="seller_order_details__button-preparing-check"
