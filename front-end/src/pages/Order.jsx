@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import ProductCardOrd from '../components/ProductCardOrd';
 import NavHeader from '../components/NavHeader';
 
 function Order() {
@@ -8,8 +9,9 @@ function Order() {
   const [sellerName, setSellerName] = useState('');
   const [sellDate, setSellDate] = useState('');
   const [totalPrice, setTotalPrice] = useState('');
+  const [products, setProducts] = useState([]);
   const [delivButton, setDelivButton] = useState(true);
-
+  const dataTest = 'customer_order_details__element-order-details-label-delivery-status';
   const appJson = 'application/json';
 
   const loadSale = async () => {
@@ -38,6 +40,7 @@ function Order() {
     const d = new Date(data.saleDate);
     setSellDate(d.toLocaleDateString('en-GB'));
     setTotalPrice(data.totalPrice.replace(/\./, ','));
+    setProducts(data.products);
   };
 
   useEffect(() => {
@@ -59,36 +62,46 @@ function Order() {
   return (
     <div>
       <NavHeader />
-      <p data-testid="customer_order_details__element-order-details-label-order-id">
-        {sale.id}
-      </p>
+      <article className="order">
+        <header className="orderDetail">
+          <p data-testid="customer_order_details__element-order-details-label-order-id">
+            {sale.id}
+          </p>
 
-      <p data-testid="customer_order_details__element-order-details-label-seller-name">
-        {sellerName.name}
-      </p>
+          <p
+            data-testid="customer_order_details__element-order-details-label-seller-name"
+          >
+            {sellerName.name}
+          </p>
 
-      <p data-testid="customer_order_details__element-order-details-label-order-date">
-        {sellDate}
-      </p>
+          <p data-testid="customer_order_details__element-order-details-label-order-date">
+            {sellDate}
+          </p>
 
-      <p
-        data-testid="customer_order_details__element-order-details-label-delivery-status"
-      >
-        {sale.status}
-      </p>
+          <p data-testid={ dataTest }>{sale.status}</p>
+        </header>
 
-      <p data-testid="customer_order_details__element-order-total-price">
-        {totalPrice}
-      </p>
-
-      <button
-        type="button"
-        data-testid="customer_order_details__button-delivery-check"
-        onClick={ () => deliveredCheck() }
-        disabled={ delivButton }
-      >
-        a
-      </button>
+        {products.map((prod, index) => (
+          <ProductCardOrd key={ `prodCartOrd${prod.id}` } data={ prod } i={ index } />
+        ))}
+        <div>
+          <br />
+          <span>TOTAL: </span>
+          <span>R$ </span>
+          <span data-testid="customer_order_details__element-order-total-price">
+            {totalPrice}
+          </span>
+        </div>
+        <br />
+        <button
+          type="button"
+          data-testid="customer_order_details__button-delivery-check"
+          onClick={ () => deliveredCheck() }
+          disabled={ delivButton }
+        >
+          PEDIDO RECEBIDO
+        </button>
+      </article>
     </div>
   );
 }

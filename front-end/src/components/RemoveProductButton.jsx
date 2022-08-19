@@ -18,6 +18,7 @@ function RemoveProductButton({ data, sendQtFunc }) {
 
   return (
     <button
+      className="buttonA"
       type="button"
       data-testid={ `customer_products__button-card-rm-item-${id}` }
       onClick={ () => rmProd(id) }

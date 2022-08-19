@@ -15,12 +15,15 @@ function Cart() {
   }
 
   return (
-    <div>
-      <p
-        data-testid="customer_products__checkout-bottom-value"
-      >
-        { formatInt(cartTotal) }
-      </p>
+    <article className="cartButton">
+      <div className="cartPrice">
+        <span>R$: </span>
+        <span
+          data-testid="customer_products__checkout-bottom-value"
+        >
+          { formatInt(cartTotal) }
+        </span>
+      </div>
       <button
         type="button"
         data-testid="customer_products__button-cart"
@@ -29,7 +32,7 @@ function Cart() {
       >
         Cart
       </button>
-    </div>
+    </article>
   );
 }
 

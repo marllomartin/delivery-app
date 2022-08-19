@@ -11,12 +11,17 @@ function Checkout() {
   return (
     <div>
       <NavHeader />
-      {items.map((prod, index) => (
-        <CartCard key={ `prodCart${prod.id}` } data={ prod } i={ index } />
-      ))}
-      <p data-testid="customer_checkout__element-order-total-price">
-        {priteTotal.replace(/\./, ',')}
-      </p>
+      <article className="article">
+        {items.map((prod, index) => (
+          <CartCard key={ `prodCart${prod.id}` } data={ prod } i={ index } />
+        ))}
+        <br />
+        <span>TOTAL: </span>
+        <span>R$ </span>
+        <span data-testid="customer_checkout__element-order-total-price">
+          {priteTotal.replace(/\./, ',')}
+        </span>
+      </article>
       <EndCheckout data={ items } total={ cartTotal } />
     </div>
   );

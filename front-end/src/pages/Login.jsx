@@ -24,7 +24,7 @@ function Login() {
 
   return (
     <div className="LoginPage">
-      <h1>APP NAME</h1>
+      <h1>CHICO DELIVERY</h1>
       <LoginCard />
     </div>
   );

@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 
-function RegisterAdm() {
+function Register() {
   const [invalidRegister, setInvalidRegister] = useState(false);
 
   const {
@@ -10,40 +11,38 @@ function RegisterAdm() {
     formState: { errors, isDirty, isValid },
   } = useForm({ mode: 'onChange' });
 
+  const history = useNavigate();
   const Conflict = 409;
 
-  const registerUser = async (data) => {
-    const user = JSON.parse(localStorage.getItem('user'));
-    fetch('http://localhost:3001/admin/register', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        authorization: user.token,
-      },
-      body: JSON.stringify(data),
-    }).then(async (response) => {
-      if (response.status === Conflict) {
-        setInvalidRegister(true);
-      } else {
-        const res = await response.json();
-        return res;
-      }
-    });
-  };
+  const registerUser = async (data) => fetch('http://localhost:3001/register', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(data),
+  }).then(async (response) => {
+    if (response.status === Conflict) {
+      setInvalidRegister(true);
+    } else {
+      const res = await response.json();
+      localStorage.setItem('user', JSON.stringify(res));
+      history('/customer/products');
+    }
+  });
 
   // console.log(errors);
 
   return (
-    <article>
+    <article className="LoginCard">
       <form onSubmit={ handleSubmit(registerUser) }>
         <input
-          data-testid="admin_manage__input-name"
+          data-testid="common_register__input-name"
           type="text"
           placeholder="name"
           { ...register('name', { required: true, minLength: 12 }) }
         />
         <input
-          data-testid="admin_manage__input-email"
+          data-testid="common_register__input-email"
           type="email"
           placeholder="email"
           { ...register('email', {
@@ -52,35 +51,28 @@ function RegisterAdm() {
           }) }
         />
         <input
-          data-testid="admin_manage__input-password"
+          data-testid="common_register__input-password"
           type="password"
           placeholder="password"
           { ...register('password', { required: true, minLength: 6 }) }
         />
-        <select
-          { ...register('role', { required: true }) }
-          data-testid="admin_manage__select-role"
-        >
-          <option value="customer">customer</option>
-          <option value="seller">seller</option>
-          <option value="administrator">administrator</option>
-        </select>
         {errors.exampleRequired && <span>This field is required</span>}
         {invalidRegister && (
-          <span data-testid="admin_manage__element-invalid-register">
+          <span data-testid="common_register__element-invalid_register">
             Registro invalido
           </span>
         )}
         <button
-          data-testid="admin_manage__button-register"
+          data-testid="common_register__button-register"
           type="submit"
           disabled={ !isDirty || !isValid }
         >
           register
+
         </button>
       </form>
     </article>
   );
 }
 
-export default RegisterAdm;
+export default Register;

@@ -11,7 +11,7 @@ function OrderCardSeller({ data }) {
   }, []);
 
   return (
-    <div>
+    <article className="ordersPage">
       <p data-testid={ `customer_orders__element-order-id-${data.id}` }>
         {data.id}
       </p>
@@ -27,14 +27,13 @@ function OrderCardSeller({ data }) {
       </p>
 
       <p data-testid={ `customer_orders__element-card-price-${data.id}` }>
-        {data.totalPrice.replace(/\./, ',')}
+        {`R$ ${data.totalPrice.replace(/\./, ',')}`}
       </p>
 
       <p data-testid={ `seller_orders__element-card-address-${data.id}` }>
-        {data.deliveryAddress}
-        {data.deliveryNumber}
+        {`${data.deliveryAddress} ${data.deliveryNumber}`}
       </p>
-    </div>
+    </article>
   );
 }
 

@@ -25,35 +25,40 @@ function ProductCard({ data }) {
 
   const { urlImage, name, id, price } = data;
   return (
-    <div>
+    <article className="productCard">
+      <h5 data-testid={ `customer_products__element-card-title-${id}` }>{name}</h5>
       <img
         src={ urlImage }
         alt={ name }
         data-testid={ `customer_products__img-card-bg-image-${id}` }
       />
-      <p data-testid={ `customer_products__element-card-title-${id}` }>{name}</p>
-      <p data-testid={ `customer_products__element-card-price-${id}` }>
-        {price.replace(/\./, ',')}
-      </p>
-      <AddProductButton
-        key={ `add${id}` }
-        data={ data }
-        quant={ prodQt }
-        sendQtFunc={ sendQtFunc }
-      />
-      <ProductQuantity
-        key={ `pq${id}` }
-        data={ data }
-        quant={ prodQt }
-        sendQtFunc={ sendQtFunc }
-      />
-      <RemoveProductButton
-        key={ `rm${id}` }
-        data={ data }
-        quant={ prodQt }
-        sendQtFunc={ sendQtFunc }
-      />
-    </div>
+      <div>
+        <span>R$: </span>
+        <span data-testid={ `customer_products__element-card-price-${id}` }>
+          {price.replace(/\./, ',')}
+        </span>
+      </div>
+      <div className="addRmProd">
+        <AddProductButton
+          key={ `add${id}` }
+          data={ data }
+          quant={ prodQt }
+          sendQtFunc={ sendQtFunc }
+        />
+        <ProductQuantity
+          key={ `pq${id}` }
+          data={ data }
+          quant={ prodQt }
+          sendQtFunc={ sendQtFunc }
+        />
+        <RemoveProductButton
+          key={ `rm${id}` }
+          data={ data }
+          quant={ prodQt }
+          sendQtFunc={ sendQtFunc }
+        />
+      </div>
+    </article>
   );
 }
 

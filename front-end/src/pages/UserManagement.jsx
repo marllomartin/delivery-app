@@ -7,7 +7,6 @@ function UserManagement() {
     <div>
       <NavHeaderAdmin />
       <RegisterAdm />
-      <h1>a</h1>
     </div>
   );
 }

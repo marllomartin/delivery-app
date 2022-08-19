@@ -59,7 +59,7 @@ function EndCheckout({ data, total }) {
   }, []);
 
   return (
-    <div>
+    <article className="article">
       <form onSubmit={ handleSubmit(checkout) }>
         <label htmlFor="seller">
           Vendedor:
@@ -74,26 +74,28 @@ function EndCheckout({ data, total }) {
           </select>
         </label>
         <br />
-        <label htmlFor="endereco">
-          Endereco:
-          <input
-            id="endereco"
-            data-testid="customer_checkout__input-address"
-            { ...register('deliveryAddress', {
-              required: true,
-            }) }
-          />
-        </label>
-        <br />
-        <label htmlFor="enderecoNum">
-          Numero endereco:
-          <input
-            id="enderecoNum"
-            type="number"
-            data-testid="customer_checkout__input-addressNumber"
-            { ...register('deliveryNumber', { required: true }) }
-          />
-        </label>
+        <div>
+          <label htmlFor="endereco">
+            Endereco:
+            <input
+              id="endereco"
+              data-testid="customer_checkout__input-address"
+              { ...register('deliveryAddress', {
+                required: true,
+              }) }
+            />
+          </label>
+          <br />
+          <label htmlFor="enderecoNum">
+            Numero endereco:
+            <input
+              id="enderecoNum"
+              type="number"
+              data-testid="customer_checkout__input-addressNumber"
+              { ...register('deliveryNumber', { required: true }) }
+            />
+          </label>
+        </div>
         {errors.exampleRequired && <span>This field is required</span>}
         <br />
         <button
@@ -104,7 +106,7 @@ function EndCheckout({ data, total }) {
           Finish
         </button>
       </form>
-    </div>
+    </article>
   );
 }
 
