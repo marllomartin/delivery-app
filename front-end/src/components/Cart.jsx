@@ -16,11 +16,11 @@ function Cart() {
 
   return (
     <div>
-      <p
+      <span
         data-testid="customer_products__checkout-bottom-value"
       >
         { formatInt(cartTotal) }
-      </p>
+      </span>
       <button
         type="button"
         data-testid="customer_products__button-cart"

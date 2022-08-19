@@ -41,7 +41,8 @@ function LoginCard() {
   // console.log(errors);
 
   return (
-    <div className="LoginCard">
+    <article className="LoginCard">
+      <h1>APP NAME</h1>
       <form onSubmit={ handleSubmit(login) }>
         <input
           type="email"
@@ -77,7 +78,7 @@ function LoginCard() {
           </button>
         </Link>
       </form>
-    </div>
+    </article>
   );
 }
 

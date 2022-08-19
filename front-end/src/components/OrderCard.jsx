@@ -7,11 +7,11 @@ function OrderCard({ data }) {
   useEffect(() => {
     const d = new Date(data.saleDate);
     setSellDate(d.toLocaleDateString('en-GB'));
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
-    <div>
+    <article>
       <p data-testid={ `seller_orders__element-order-id-${data.id}` }>
         {data.id}
       </p>
@@ -20,9 +20,7 @@ function OrderCard({ data }) {
         {sellDate}
       </p>
 
-      <p
-        data-testid={ `seller_orders__element-delivery-status-${data.id}` }
-      >
+      <p data-testid={ `seller_orders__element-delivery-status-${data.id}` }>
         {data.status}
       </p>
 
@@ -34,7 +32,7 @@ function OrderCard({ data }) {
         {data.deliveryAddress}
         {data.deliveryNumber}
       </p>
-    </div>
+    </article>
   );
 }
 

@@ -25,7 +25,7 @@ function ProductCard({ data }) {
 
   const { urlImage, name, id, price } = data;
   return (
-    <div>
+    <article>
       <img
         src={ urlImage }
         alt={ name }
@@ -35,25 +35,28 @@ function ProductCard({ data }) {
       <p data-testid={ `customer_products__element-card-price-${id}` }>
         {price.replace(/\./, ',')}
       </p>
-      <AddProductButton
-        key={ `add${id}` }
-        data={ data }
-        quant={ prodQt }
-        sendQtFunc={ sendQtFunc }
-      />
-      <ProductQuantity
-        key={ `pq${id}` }
-        data={ data }
-        quant={ prodQt }
-        sendQtFunc={ sendQtFunc }
-      />
-      <RemoveProductButton
-        key={ `rm${id}` }
-        data={ data }
-        quant={ prodQt }
-        sendQtFunc={ sendQtFunc }
-      />
-    </div>
+      <div>
+
+        <AddProductButton
+          key={ `add${id}` }
+          data={ data }
+          quant={ prodQt }
+          sendQtFunc={ sendQtFunc }
+        />
+        <ProductQuantity
+          key={ `pq${id}` }
+          data={ data }
+          quant={ prodQt }
+          sendQtFunc={ sendQtFunc }
+        />
+        <RemoveProductButton
+          key={ `rm${id}` }
+          data={ data }
+          quant={ prodQt }
+          sendQtFunc={ sendQtFunc }
+        />
+      </div>
+    </article>
   );
 }
 

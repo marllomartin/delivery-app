@@ -23,13 +23,13 @@ function Orders() {
       <header>
         <NavHeader />
       </header>
-      <ul>
+      <div>
         {orders.map((prod) => (
           <Link to={ `/customer/orders/${prod.id}` } key={ `saleCardCust${prod.id}` }>
             <OrderCardCust data={ prod } />
           </Link>
         ))}
-      </ul>
+      </div>
     </>
   );
 }

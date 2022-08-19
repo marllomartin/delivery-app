@@ -33,7 +33,7 @@ function Register() {
   // console.log(errors);
 
   return (
-    <div>
+    <article>
       <form onSubmit={ handleSubmit(registerUser) }>
         <input
           data-testid="common_register__input-name"
@@ -71,7 +71,7 @@ function Register() {
 
         </button>
       </form>
-    </div>
+    </article>
   );
 }
 

@@ -34,7 +34,7 @@ function RegisterAdm() {
   // console.log(errors);
 
   return (
-    <div>
+    <article>
       <form onSubmit={ handleSubmit(registerUser) }>
         <input
           data-testid="admin_manage__input-name"
@@ -79,7 +79,7 @@ function RegisterAdm() {
           register
         </button>
       </form>
-    </div>
+    </article>
   );
 }
 

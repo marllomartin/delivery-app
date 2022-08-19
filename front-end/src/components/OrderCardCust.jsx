@@ -11,7 +11,7 @@ function OrderCardSeller({ data }) {
   }, []);
 
   return (
-    <div>
+    <article>
       <p data-testid={ `customer_orders__element-order-id-${data.id}` }>
         {data.id}
       </p>
@@ -34,7 +34,7 @@ function OrderCardSeller({ data }) {
         {data.deliveryAddress}
         {data.deliveryNumber}
       </p>
-    </div>
+    </article>
   );
 }
 

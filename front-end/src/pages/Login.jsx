@@ -24,7 +24,6 @@ function Login() {
 
   return (
     <div className="LoginPage">
-      <h1>APP NAME</h1>
       <LoginCard />
     </div>
   );
