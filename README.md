@@ -5,7 +5,7 @@
 </div>
 
 ## Sobre
-Aplicação full stack de uma plataforma de delivery de bebidas desenvolvida em grupo enquanto eu estudava na [Trybe](https://www.betrybe.com/).
+Aplicação full stack de uma plataforma de delivery de bebidas desenvolvida em grupo durante meus estudos na [Trybe](https://www.betrybe.com/).
 
 <br>
 <div align="center">
