@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import { useCart } from 'react-use-cart';
+import { MdRemoveShoppingCart } from 'react-icons/md';
 
 function CartCard({ data, i }) {
   const { getItem, removeItem } = useCart();
@@ -38,7 +39,7 @@ function CartCard({ data, i }) {
         data-testid={ `customer_checkout__element-order-table-remove-${i}` }
         onClick={ () => removeItem(id) }
       >
-        RMV
+        <MdRemoveShoppingCart />
       </button>
     </div>
   );
