@@ -93,8 +93,6 @@ Neste projeto, o usuário é capaz de:
  </tr>
 </table>
 
-## Organização
-
 ## Rodando o projeto localmente
 
 ### Atenção!
