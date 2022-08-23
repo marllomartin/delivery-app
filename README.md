@@ -5,7 +5,7 @@
 </div>
 
 ## Sobre
-Aplicação full stack de uma plataforma de delivery de bebidas desenvolvida em grupo enquanto eu estudava na [Trybe](https://www.betrybe.com/).
+Aplicação full stack de uma plataforma de delivery de bebidas desenvolvida em grupo durante meus estudos na [Trybe](https://www.betrybe.com/). 
 
 <br>
 <div align="center">
@@ -15,7 +15,7 @@ Aplicação full stack de uma plataforma de delivery de bebidas desenvolvida em 
 ## Funcionalidades
 Neste projeto, o usuário é capaz de:
 
-  * Fazer o registro de um novo usuário na aplicação;
+  * Cadastro de novos usuários;
 
   * Fazer o login na aplicação;
   
@@ -31,7 +31,7 @@ Neste projeto, o usuário é capaz de:
    
     * Atualizar o status do progresso da compra de acordo com as permissões do usuário;
 
-  * Caso o usuário seja um administrador, registrar novos vendedores, visualizar e excluir usuários existentes;
+  * Caso o usuário seja um administrador, cadastras novos usuários vendedores, visualizar e excluir usuários existentes;
 
 ## Tecnologias Utilizadas
 
@@ -51,6 +51,10 @@ Neste projeto, o usuário é capaz de:
   * [HTTP-Status-Codes](https://www.npmjs.com/package/http-status-codes)
   
 ## Equipe
+
+No desenvolvimento do projeto, tivemos uma abordagem ágil e realizamos a divisão do grupo em duas equipes, uma para o front-end e outra para o back-end, a plataforma do [Trello](https://trello.com/) também foi utilizada a fim de organizar as tarefas. Além disso, foi definido um horário fixo para a realização de reuniões diárias a fim de discutir sobre o andamento do projeto.
+
+<br>
 
 <table align="center">
  <tr>
@@ -91,7 +95,7 @@ Neste projeto, o usuário é capaz de:
  </tr>
 </table>
 
-## Organização
+<br>
 
 ## Rodando o projeto localmente
 
