@@ -7,8 +7,6 @@
 ## Sobre
 Aplicação full stack de uma plataforma de delivery de bebidas desenvolvida em grupo durante meus estudos na [Trybe](https://www.betrybe.com/). 
 
-No desenvolvimento do projeto, utilizamos uma abordagem ágil e nos dividimos em duas equipes, uma para o front-end e outra para o back-end além de utilizamos a plataforma do [Trello](https://trello.com/) para organizarmos nossas tarefas. Também foi definido um horário para a realização de reuniões diárias a fim de discutir sobre o andamento do projeto.
-
 <br>
 <div align="center">
 <img src=https://i.imgur.com/xbxSKwv.png>
@@ -54,6 +52,10 @@ Neste projeto, o usuário é capaz de:
   
 ## Equipe
 
+No desenvolvimento do projeto, tivemos uma abordagem ágil e realizamos a divisão do grupo em duas equipes, uma para o front-end e outra para o back-end, a plataforma do [Trello](https://trello.com/) também foi utilizada a fim de organizar as tarefas. Além disso, foi definido um horário fixo para a realização de reuniões diárias a fim de discutir sobre o andamento do projeto.
+
+<br>
+
 <table align="center">
  <tr>
   <th align="center" colspan="2">Front-End</th>
@@ -92,6 +94,8 @@ Neste projeto, o usuário é capaz de:
   </td>
  </tr>
 </table>
+
+<br>
 
 ## Rodando o projeto localmente
 
