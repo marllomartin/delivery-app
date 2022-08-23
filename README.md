@@ -5,19 +5,20 @@
 </div>
 
 ## Sobre
-Aplicação full stack de uma plataforma de delivery de bebidas desenvolvida em grupo durante meus estudos na [Trybe](https://www.betrybe.com/). 
+Aplicação full stack de uma plataforma de delivery de bebidas desenvolvida em grupo durante meus estudos na [Trybe](https://www.betrybe.com/).
+
+<div align="center">
+<img src=https://github.com/marllomartin/delivery-app/blob/main/public/GIF_1.gif width="400px">
+</div>
 
 <br>
-<div align="center">
-<img src=https://i.imgur.com/xbxSKwv.png>
-</div>
 
 ## Funcionalidades
 Neste projeto, o usuário é capaz de:
 
-  * Cadastro de novos usuários;
+  * Se cadastrar na plataforma;
 
-  * Fazer o login na aplicação;
+  * Fazer o login na aplicação, caso já esteja cadastrado;
   
     * É feita a autenticação local do usuário ao logar na aplicação;
     
@@ -27,11 +28,16 @@ Neste projeto, o usuário é capaz de:
   
   * Adicionar as bebidas desejadas no carrinho e finalizar uma compra;
   
-  * Acompanhar o progresso da compra (Pendente, Em Trânsito, Entregue);
+  * Acompanhar o status da compra (Pendente, Em Trânsito, Entregue);
    
-    * Atualizar o status do progresso da compra de acordo com as permissões do usuário;
+    * Atualizar o status da compra de acordo com as permissões do usuário;
 
-  * Caso o usuário seja um administrador, cadastras novos usuários vendedores, visualizar e excluir usuários existentes;
+  * Caso o usuário seja um administrador, cadastrar novos usuários vendedores, visualizar e excluir usuários existentes;
+
+<br>
+<div align="center">
+<img src=https://github.com/marllomartin/delivery-app/blob/main/public/GIF_2.gif width="400px">
+</div>
 
 ## Tecnologias Utilizadas
 
