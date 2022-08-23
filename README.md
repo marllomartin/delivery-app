@@ -1,7 +1,7 @@
 # Project Delivery App
 
 <div align="center">
-<img src=URL width="200px">
+<img src=https://i.imgur.com/ugaWpIs.png width="200px">
 </div>
 
 ## Sobre
