@@ -55,13 +55,13 @@ function LoginCard() {
         <input
           type="password"
           data-testid="common_login__input-password"
-          placeholder="password"
+          placeholder="senha"
           { ...register('password', { required: true, minLength: 6 }) }
         />
         {errors.exampleRequired && <span>This field is required</span>}
         {invalidLogin && (
           <span data-testid="common_login__element-invalid-email">
-            Invalid email/password
+            Senha ou email inválidos
           </span>
         )}
         <button
@@ -73,7 +73,7 @@ function LoginCard() {
         </button>
         <Link to="/register">
           <button type="button" data-testid="common_login__button-register">
-            Ainda nao tenho conta
+            Ainda não tenho conta
           </button>
         </Link>
       </form>

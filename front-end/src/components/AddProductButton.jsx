@@ -1,4 +1,5 @@
 import React from 'react';
+import { IoAdd } from 'react-icons/io5';
 import { useCart } from 'react-use-cart';
 import PropTypes from 'prop-types';
 
@@ -23,7 +24,7 @@ function AddProductButton({ data, sendQtFunc }) {
       data-testid={ `customer_products__button-card-add-item-${id}` }
       onClick={ () => addProd(data) }
     >
-      ADD
+      <IoAdd />
     </button>
   );
 }

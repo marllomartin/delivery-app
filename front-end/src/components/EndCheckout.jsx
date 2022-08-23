@@ -76,7 +76,7 @@ function EndCheckout({ data, total }) {
         <br />
         <div>
           <label htmlFor="endereco">
-            Endereco:
+            Endereço:
             <input
               id="endereco"
               data-testid="customer_checkout__input-address"
@@ -87,7 +87,7 @@ function EndCheckout({ data, total }) {
           </label>
           <br />
           <label htmlFor="enderecoNum">
-            Numero endereco:
+            Número:
             <input
               id="enderecoNum"
               type="number"
@@ -103,7 +103,7 @@ function EndCheckout({ data, total }) {
           data-testid="customer_checkout__button-submit-order"
           disabled={ !isDirty || !isValid }
         >
-          Finish
+          Finalizar
         </button>
       </form>
     </article>

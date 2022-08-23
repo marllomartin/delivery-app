@@ -30,15 +30,13 @@ function Register() {
     }
   });
 
-  // console.log(errors);
-
   return (
     <article className="LoginCard">
       <form onSubmit={ handleSubmit(registerUser) }>
         <input
           data-testid="common_register__input-name"
           type="text"
-          placeholder="name"
+          placeholder="nome"
           { ...register('name', { required: true, minLength: 12 }) }
         />
         <input
@@ -53,13 +51,13 @@ function Register() {
         <input
           data-testid="common_register__input-password"
           type="password"
-          placeholder="password"
+          placeholder="senha"
           { ...register('password', { required: true, minLength: 6 }) }
         />
         {errors.exampleRequired && <span>This field is required</span>}
         {invalidRegister && (
           <span data-testid="common_register__element-invalid_register">
-            Registro invalido
+            Usuário já existe
           </span>
         )}
         <button
@@ -67,7 +65,7 @@ function Register() {
           type="submit"
           disabled={ !isDirty || !isValid }
         >
-          register
+          Registrar
 
         </button>
       </form>

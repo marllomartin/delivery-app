@@ -1,4 +1,5 @@
 import React from 'react';
+import { IoRemove } from 'react-icons/io5';
 import { useCart } from 'react-use-cart';
 import PropTypes from 'prop-types';
 
@@ -23,7 +24,7 @@ function RemoveProductButton({ data, sendQtFunc }) {
       data-testid={ `customer_products__button-card-rm-item-${id}` }
       onClick={ () => rmProd(id) }
     >
-      RMV
+      <IoRemove />
     </button>
   );
 }
