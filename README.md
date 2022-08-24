@@ -337,12 +337,12 @@ body:
 
 #### Retornar todos os usuários não-administradores
 ```http
-  POST /admin/users
+  GET /admin/users
 ```
 
 #### Excluir o cadastro de um usuário
 ```http
-  POST /admin/users/${id}
+  DELETE /admin/users/${id}
 ```
 
 | Parâmetro   | Descrição                                   |
