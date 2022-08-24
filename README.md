@@ -196,7 +196,6 @@ body:
 body:
 ```
 {
-  "name": "Usuário Legal",
   "email": "user@user.com",
   "password": "us3R321"
 }
