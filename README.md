@@ -4,6 +4,14 @@
 <img src=https://i.imgur.com/ugaWpIs.png width="200px">
 </div>
 
+## Sumário
+- [Sobre](#sobre)
+- [Funcionalidades](#funcionalidades)
+- [Tecnologias Utilizadas](#tecnologias-utilizadas)
+- [Equipe](#equipe)
+- [Rodando o projeto](#rodando-o-projeto-localmente)
+- [Documentação da API](#documentação-da-api)
+
 ## Sobre
 Aplicação full stack de uma plataforma de delivery de bebidas desenvolvida em grupo durante meus estudos na [Trybe](https://www.betrybe.com/).
 
@@ -144,3 +152,200 @@ Na pasta frontend:
 ```
 npm start
 ```
+
+## Documentação da API
+
+### Cadastro
+```http
+  POST /register
+```
+
+| Parâmetro   | Descrição                                   |
+| :---------- | :------------------------------------------ |
+| `name`      |  O nome do usuário a ser registrado |
+| `email`      |  O email do usuário a ser registrado |
+| `password`      |  A senha do usuário a ser registrado |
+
+<details><summary>Exemplo</summary>
+<br>
+
+body:
+```
+{
+  "name": "Usuário Legal",
+  "email": "user@user.com",
+  "password": "us3R321"
+}
+```
+
+</details>
+
+### Login
+```http
+  POST /login
+```
+
+| Parâmetro   | Descrição                                   |
+| :---------- | :---------------------------------- |
+| `email` |  O email do usuário registrado |
+| `password` |  A senha do usuário registrado |
+
+<details><summary>Exemplo</summary>
+<br>
+
+body:
+```
+{
+  "name": "Usuário Legal",
+  "email": "user@user.com",
+  "password": "us3R321"
+}
+```
+
+</details>
+
+### Produtos
+#### Retornar todos os produtos disponíveis
+```http
+  GET /products
+```
+
+#### Retornar um produto de id específico
+```http
+  GET /products/${id}
+```
+
+| Parâmetro   | Descrição                                   |
+| :---------- | :------------------------------------------ |
+| `id`      |  O id do produto a ser retornado|
+
+
+### Pedidos
+#### Retornar todos os pedidos de um cliente específico
+```http
+  GET /orders/user/${id}
+```
+
+| Parâmetro   | Descrição                                   |
+| :---------- | :------------------------------------------ |
+| `id`      |  O id do cliente a ter os pedidos retornados|
+
+#### Retornar todos os pedidos de um vendedor específico
+```http
+  GET /orders/${id}
+```
+
+| Parâmetro   | Descrição                                   |
+| :---------- | :------------------------------------------ |
+| `id`      |  O id do vendedor a ter os pedidos retornados|
+
+#### Retornar um pedido de id específico
+```http
+  GET /orders/user/${id}
+```
+
+| Parâmetro   | Descrição                                   |
+| :---------- | :------------------------------------------ |
+| `id`      |  O id do pedido a ser retornado|
+
+#### Registrar um novo pedido
+```http
+  POST /orders
+```
+
+| Parâmetro   | Descrição                                   |
+| :---------- | :------------------------------------------ |
+| `sellerId`      |  O id do vendedor |
+| `totalPrice`      |  O valor total da compra|
+| `deliveryAddress`      |  O endereço a ser enviado|
+| `deliveryNumber`      |  O número do endereço a ser enviado|
+| `products`      |  Um array com os produtos comprados |
+
+<details><summary>Exemplo</summary>
+<br>
+
+body:
+```
+{
+  "sellerId": 3,
+  "totalPrice": "20.50",
+  "deliveryAddress": "Rua Teste",
+  "deliveryNumber": "20",
+  "products": [
+    {
+      "id": 2,
+      "itemTotal": 7.5,
+      "name": "Heineken 600ml",
+      "price": "7.50",
+      "quantity": 1,
+      "urlImage": "http://localhost:3001/images/heineken_600ml.jpg"
+    }
+  ]
+}
+```
+
+</details>
+
+#### Atualizar o status de pedido
+```http
+  PATCH /orders/${id}
+```
+
+| Parâmetro   | Descrição                                   |
+| :---------- | :------------------------------------------ |
+| `id`      |  O id do pedido a ter seu status atualizado |
+| `status`      |  O novo status do pedido |
+
+<details><summary>Exemplo</summary>
+<br>
+
+body:
+```
+{
+  "status": "Entregue"
+}
+```
+
+</details>
+
+### Administrador
+#### Cadastrar um novo usuário
+```http
+  POST /admin/register
+```
+
+| Parâmetro   | Descrição                                   |
+| :---------- | :------------------------------------------ |
+| `name`      |  O nome do usuário a ser registrado |
+| `email`      |  O email do usuário a ser registrado |
+| `password`      |  A senha do usuário a ser registrado |
+| `role`      |  A função do usuário a ser registrado |
+
+<details><summary>Exemplo</summary>
+<br>
+
+body:
+```
+{
+  "name": "Vendedor Bacana",
+  "email": "vendedor_bacana@email.net",
+  "password": "amovender123",
+  "role": "seller"
+}
+```
+
+</details>
+
+#### Retornar todos os usuários não-administradores
+```http
+  POST /admin/users
+```
+
+#### Excluir o cadastro de um usuário
+```http
+  POST /admin/users/${id}
+```
+
+| Parâmetro   | Descrição                                   |
+| :---------- | :------------------------------------------ |
+| `id`      |  O id do usuário a ser excluído |
