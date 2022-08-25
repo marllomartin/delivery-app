@@ -231,7 +231,7 @@ body:
 
 #### Retornar todos os pedidos de um vendedor específico
 ```http
-  GET /orders/${id}
+  GET /orders/seller/${id}
 ```
 
 | Parâmetro   | Descrição                                   |
@@ -240,7 +240,7 @@ body:
 
 #### Retornar um pedido de id específico
 ```http
-  GET /orders/user/${id}
+  GET /orders/${id}
 ```
 
 | Parâmetro   | Descrição                                   |
