@@ -4,16 +4,16 @@
 <img src=https://i.imgur.com/ugaWpIs.png width="200px">
 </div>
 
-## Sumário
-- [Sobre](#sobre)
-- [Funcionalidades](#funcionalidades)
-- [Tecnologias Utilizadas](#tecnologias-utilizadas)
-- [Equipe](#equipe)
-- [Rodando o projeto](#rodando-o-projeto-localmente)
-- [Documentação da API](#documentação-da-api)
+## Summary
+- [About](#about)
+- [Features](#features)
+- [Technologies Used](#technologies-used)
+- [Team](#team)
+- [Running project](#running-project)
+- [API Documentation](#documentação-da-api)
 
-## Sobre
-Aplicação full stack de uma plataforma de delivery de bebidas desenvolvida em grupo durante meus estudos na [Trybe](https://www.betrybe.com/).
+## About
+Full stack web application of a beverage ecommerce platform developed in a team during my time studying at [Trybe](https://www.betrybe.com/).
 
 <div align="center">
 <img src=https://github.com/marllomartin/delivery-app/blob/main/public/GIF_1.gif width="400px">
@@ -21,33 +21,33 @@ Aplicação full stack de uma plataforma de delivery de bebidas desenvolvida em 
 
 <br>
 
-## Funcionalidades
-Neste projeto, o usuário é capaz de:
+## Features
+In this project, the user is capable of:
 
-  * Se cadastrar na plataforma;
+  * Register on the platform;
 
-  * Fazer o login na aplicação, caso já esteja cadastrado;
+  * Log in, if already registered;
   
-    * É feita a autenticação local do usuário ao logar na aplicação;
+    * The user is authenticated when logging in;
     
-    * As credenciais sensíveis de cada usuário são criptografadas em [MD5](https://www.npmjs.com/package/md5) ao serem lidas e salvas no banco;
-
-  * Visualizar todas as bebidas disponíveis;
+    * Each user sensible credentials are hashed when read and saved in the database;
   
-  * Adicionar as bebidas desejadas no carrinho e finalizar uma compra;
+  * Visualize every product available to purchase;
   
-  * Acompanhar o status da compra (Pendente, Em Trânsito, Entregue);
+  * Add the desired product to the cart and checkout;
+  
+  * Follow their purchase status (Pending, In Transit, Delivered);
    
-    * Atualizar o status da compra de acordo com as permissões do usuário;
+    * Update their purchase status according to their permissions;
 
-  * Caso o usuário seja um administrador, cadastrar novos usuários vendedores, visualizar e excluir usuários existentes;
+  * If the user is an admin, they can register new sellers, visualize and delete existing users;
 
 <br>
 <div align="center">
 <img src=https://github.com/marllomartin/delivery-app/blob/main/public/GIF_2.gif width="400px">
 </div>
 
-## Tecnologias Utilizadas
+## Technologies Used
 
 ### Front-End
 * [React](https://reactjs.org/)
@@ -64,9 +64,9 @@ Neste projeto, o usuário é capaz de:
   * [Express](https://expressjs.com/pt-br/)
   * [HTTP-Status-Codes](https://www.npmjs.com/package/http-status-codes)
   
-## Equipe
+## Team
 
-No desenvolvimento do projeto, tivemos uma abordagem ágil e realizamos a divisão do grupo em duas equipes, uma para o front-end e outra para o back-end, a plataforma do [Trello](https://trello.com/) também foi utilizada a fim de organizar as tarefas. Além disso, foi definido um horário fixo para a realização de reuniões diárias a fim de discutir sobre o andamento do projeto.
+During the development of this project, we had an agile approach using the Kanban method and divided the group into two teams, one for the front-end and the other for the back-end, the [Trello](https://trello.com/) platform was used to organize the tasks as well. In addition, a fixed time was defined for holding daily meetings to discuss the progress of the project.
 
 <br>
 
@@ -111,12 +111,12 @@ No desenvolvimento do projeto, tivemos uma abordagem ágil e realizamos a divis�
 
 <br>
 
-## Rodando o projeto localmente
+## Running project
 
-### Atenção!
-Esse projeto utiliza variáveis de ambiente. Renomeie o arquivo `.env.example` para `.env` e altere os valores de acordo com suas próprias configurações.
+#### Attention!
+The Back-End of this project has environment variables. Rename the `.env.example` file to `.env` and set its values accordingly to your own settings.
 
-### Clonando o projeto:
+### Cloning repository:
 ```
 git clone git@github.com:marllomartin/delivery-app.git
 
@@ -124,13 +124,13 @@ cd delivery-app
 
 cd app
 ```
-### Instalando as dependências do Front-End:
+### Installing Front-End dependencies:
 ```
 cd frontend
 
 npm install
 ```
-### Instalando as dependências do Back-End:
+### Installing Back-End dependencies:
 ```
 cd ..
 
@@ -138,41 +138,41 @@ cd backend
 
 npm install
 ```
-### Inicializando o Banco de Dados com Sequelize:
+### Creating database with Sequelize:
 ```
 npm run db:reset
 ```
-### Inicializando o Back-End do projeto:
-Na pasta backend:
+### Running Back-End:
+In the backend directory:
 ```
 npm run dev
 ```
-### Inicializando o Front-End do projeto:
-Na pasta frontend:
+### Running Front-End:
+In the frontend directory:
 ```
 npm start
 ```
 
-## Documentação da API
+## API Documentation
 
-### Cadastro
+### User Registering
 ```http
   POST /register
 ```
 
-| Parâmetro   | Descrição                                   |
+| Name   | Description                                   |
 | :---------- | :------------------------------------------ |
-| `name`      |  O nome do usuário a ser registrado |
-| `email`      |  O email do usuário a ser registrado |
-| `password`      |  A senha do usuário a ser registrado |
+| `name`      |  The name of the user to be registered |
+| `email`      | The email of the user to be registered |
+| `password`      |  The password of the user to be registered |
 
-<details><summary>Exemplo</summary>
+<details><summary>Body Example</summary>
 <br>
 
 body:
 ```
 {
-  "name": "Usuário Legal",
+  "name": "Cool User",
   "email": "user@user.com",
   "password": "us3R321"
 }
@@ -185,12 +185,12 @@ body:
   POST /login
 ```
 
-| Parâmetro   | Descrição                                   |
+| Name   | Description                                   |
 | :---------- | :---------------------------------- |
-| `email` |  O email do usuário registrado |
-| `password` |  A senha do usuário registrado |
+| `email` |  The email of an already registered user |
+| `password` |  The password of an already registered user |
 
-<details><summary>Exemplo</summary>
+<details><summary>Body Example</summary>
 <br>
 
 body:
@@ -203,64 +203,64 @@ body:
 
 </details>
 
-### Produtos
-#### Retornar todos os produtos disponíveis
+### Products
+#### Get every available product
 ```http
   GET /products
 ```
 
-#### Retornar um produto de id específico
+#### Get a specific product by id
 ```http
   GET /products/${id}
 ```
 
-| Parâmetro   | Descrição                                   |
+| Parameter   | Description                                   |
 | :---------- | :------------------------------------------ |
-| `id`      |  O id do produto a ser retornado|
+| `id`      |  The id of the product to be returned |
 
 
-### Pedidos
-#### Retornar todos os pedidos de um cliente específico
+### Orders
+#### Get every order by a specific user
 ```http
   GET /orders/user/${id}
 ```
 
 | Parâmetro   | Descrição                                   |
 | :---------- | :------------------------------------------ |
-| `id`      |  O id do cliente a ter os pedidos retornados|
+| `id`      | The id of the user to have their orders returned |
 
-#### Retornar todos os pedidos de um vendedor específico
+#### Get every order by a specific seller
 ```http
   GET /orders/seller/${id}
 ```
 
-| Parâmetro   | Descrição                                   |
+| Parameter   | Description                                   |
 | :---------- | :------------------------------------------ |
-| `id`      |  O id do vendedor a ter os pedidos retornados|
+| `id`      |  The id of the seller to have their orders returned |
 
-#### Retornar um pedido de id específico
+#### Get a specific order by id
 ```http
   GET /orders/${id}
 ```
 
-| Parâmetro   | Descrição                                   |
+| Parameter   | Description                                   |
 | :---------- | :------------------------------------------ |
-| `id`      |  O id do pedido a ser retornado|
+| `id`      |  The id of the order to be returned |
 
-#### Registrar um novo pedido
+#### Register a new order
 ```http
   POST /orders
 ```
 
-| Parâmetro   | Descrição                                   |
+| Name   | Description                                   |
 | :---------- | :------------------------------------------ |
-| `sellerId`      |  O id do vendedor |
-| `totalPrice`      |  O valor total da compra|
-| `deliveryAddress`      |  O endereço a ser enviado|
-| `deliveryNumber`      |  O número do endereço a ser enviado|
-| `products`      |  Um array com os produtos comprados |
+| `sellerId`      |  The seller id |
+| `totalPrice`      |  The total price of the order |
+| `deliveryAddress`      | The address which the order will be sent to |
+| `deliveryNumber`      | The address number which the order will be sent to |
+| `products`      |  An array containing all the purchased products |
 
-<details><summary>Exemplo</summary>
+<details><summary>Body Example</summary>
 <br>
 
 body:
@@ -285,17 +285,20 @@ body:
 
 </details>
 
-#### Atualizar o status de pedido
+#### Update an order status
 ```http
   PATCH /orders/${id}
 ```
 
-| Parâmetro   | Descrição                                   |
+| Parameter   | Description                                   |
 | :---------- | :------------------------------------------ |
-| `id`      |  O id do pedido a ter seu status atualizado |
-| `status`      |  O novo status do pedido |
+| `id`      |  The id of the order to have its status updated |
 
-<details><summary>Exemplo</summary>
+| Name   | Description                                   |
+| :---------- | :------------------------------------------ |
+| `status`      |  The new order status |
+
+<details><summary>Body Example</summary>
 <br>
 
 body:
@@ -307,44 +310,44 @@ body:
 
 </details>
 
-### Administrador
-#### Cadastrar um novo usuário
+### Admin
+#### Register a new user
 ```http
   POST /admin/register
 ```
 
-| Parâmetro   | Descrição                                   |
+| Name   | Description                                   |
 | :---------- | :------------------------------------------ |
-| `name`      |  O nome do usuário a ser registrado |
-| `email`      |  O email do usuário a ser registrado |
-| `password`      |  A senha do usuário a ser registrado |
-| `role`      |  A função do usuário a ser registrado |
+| `name`      |  The name of the user to be registered |
+| `email`      |  The email of the user to be registered |
+| `password`      |  The password of the user to be registered |
+| `role`      |  The role of the user to be registered |
 
-<details><summary>Exemplo</summary>
+<details><summary>Body Example</summary>
 <br>
 
 body:
 ```
 {
-  "name": "Vendedor Bacana",
-  "email": "vendedor_bacana@email.net",
-  "password": "amovender123",
+  "name": "Cool Seller",
+  "email": "cool_seller@email.net",
+  "password": "ilovesellingstuff123",
   "role": "seller"
 }
 ```
 
 </details>
 
-#### Retornar todos os usuários não-administradores
+#### Get every non-admin users
 ```http
   GET /admin/users
 ```
 
-#### Excluir o cadastro de um usuário
+#### Delete an user
 ```http
   DELETE /admin/users/${id}
 ```
 
-| Parâmetro   | Descrição                                   |
+| Parameter   | Description                                   |
 | :---------- | :------------------------------------------ |
-| `id`      |  O id do usuário a ser excluído |
+| `id`      |  The id of the user to be deleted |
