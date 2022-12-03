@@ -10,7 +10,7 @@
 - [Technologies Used](#technologies-used)
 - [Team](#team)
 - [Running project](#running-project)
-- [API Documentation](#documentação-da-api)
+- [API Documentation](#api-documentation)
 
 ## About
 Full stack web application of a beverage ecommerce platform developed in a team during my time studying at [Trybe](https://www.betrybe.com/).
