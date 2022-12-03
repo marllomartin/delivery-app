@@ -30,7 +30,7 @@ In this project, the user is capable of:
   
     * The user is authenticated when logging in;
     
-    * Each user sensible credentials are hashed when read and saved in the database;
+    * Each user sensible credentials are hashed when saved in the database;
   
   * Visualize every product available to purchase;
   
